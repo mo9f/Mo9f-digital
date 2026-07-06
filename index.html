@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MO9F DIGITAL — Plateforme Agricole</title>
+
+    <link
+        href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap'
+        rel='stylesheet' />
+
+    <style>
+        /* ============================================================
+     RESET & BASE
+     ============================================================ */
+        #mo9f,
+        #mo9f * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        #mo9f {
+            font-family: Inter, Arial, sans-serif;
+            color: #1C2B1E;
+            font-size: 15px;
+            line-height: 1.6;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 2147483647;
+            overflow-y: auto;
+            background: #F7F4EF;
+        }
+
+        #mo9f[dir='rtl'] {
+            text-align: right
+        }
+
+        /* ============================================================
+     CENTRAGE GLOBAL
+     ============================================================ */
+        #mo9f .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 24px
+        }
+
+        #mo9f .wrap-sm {
+            max-width: 760px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px
+        }
+
+        /* ============================================================
+     NAV
+     ============================================================ */
+        #mo9f .nav {
+            background: #1C2B1E;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+        }
+
+        #mo9f .nav-logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        #mo9f .nav-logo b {
+            color: #C9991A
+        }
+
+        #mo9f .lsw {
+            display: flex;
+            gap: 6px
+        }
+
+        #mo9f .lb {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, .25);
+            color: rgba(255, 255, 255, .6);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-family: Inter, Arial, sans-serif;
+            transition: all .2s;
+        }
+
+        #mo9f .lb:hover,
+        #mo9f .lb.act {
+            background: #C9991A;
+            border-color: #C9991A;
+            color: #1C2B1E;
+        }
+
+        /* ============================================================
+     HERO
+     ============================================================ */
+        #mo9f .hero {
+            background: #1C2B1E;
+            padding: 72px 24px 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #mo9f .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: .18;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='200' viewBox='0 0 160 200'%3E%3Cg fill='%23C9991A' opacity='0.9'%3E%3Crect x='56' y='60' width='10' height='100' rx='5'/%3E%3Crect x='36' y='95' width='10' height='50' rx='5'/%3E%3Crect x='36' y='95' width='30' height='10' rx='5'/%3E%3Crect x='76' y='80' width='10' height='40' rx='5'/%3E%3Crect x='76' y='80' width='24' height='10' rx='5'/%3E%3Cellipse cx='61' cy='165' rx='10' ry='6'/%3E%3Crect x='115' y='90' width='8' height='75' rx='4'/%3E%3Crect x='99' y='118' width='8' height='35' rx='4'/%3E%3Crect x='99' y='118' width='24' height='8' rx='4'/%3E%3Cellipse cx='119' cy='168' rx='8' ry='5'/%3E%3Crect x='18' y='110' width='6' height='55' rx='3'/%3E%3Cellipse cx='21' cy='168' rx='6' ry='4'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 160px 200px;
+        }
+
+        #mo9f .hero>* {
+            position: relative;
+            z-index: 1
+        }
+
+        #mo9f .hero-c {
+            text-align: center;
+            margin-bottom: 12px
+        }
+
+        #mo9f .hero-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            line-height: 1.05;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 16px rgba(0, 0, 0, .45);
+        }
+
+        #mo9f .hero-title b {
+            color: #C9991A;
+            text-shadow: 0 2px 12px rgba(201, 153, 26, .4)
+        }
+
+        #mo9f .hero-subtitle {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .45);
+            margin-top: 4px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+        }
+
+        @media(max-width:600px) {
+            #mo9f .hero-title {
+                font-size: 36px
+            }
+        }
+
+        #mo9f .hero-main {
+            max-width: 680px;
+            margin: 52px auto 0
+        }
+
+        #mo9f .hero-main h2 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.35;
+            margin-bottom: 14px;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, .5);
+        }
+
+        #mo9f .hero-sub {
+            color: rgba(255, 255, 255, .6);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+        }
+
+        #mo9f .hero-box {
+            border-left: 2px solid #C9991A;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, .05);
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        #mo9f[dir='rtl'] .hero-box {
+            border-left: none;
+            border-right: 2px solid #C9991A;
+            text-align: right
+        }
+
+        #mo9f .hero-box-lbl {
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #C9991A;
+            margin-bottom: 7px;
+            font-weight: 600;
+        }
+
+        #mo9f .hero-box p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.75;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+        }
+
+        #mo9f .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #1C2B1E;
+            background: #C9991A;
+            padding: 5px 14px;
+            border-radius: 2px;
+        }
+
+        /* ============================================================
+     BANDE COULEUR
+     ============================================================ */
+        #mo9f .band {
+            height: 3px;
+            background: linear-gradient(90deg, #C9991A, #40916C, #1C2B1E)
+        }
+
+        /* ============================================================
+     SECTION CENTRALE
+     ============================================================ */
+        #mo9f .main {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        #mo9f .sec {
+            text-align: center;
+            margin-bottom: 48px
+        }
+
+        #mo9f .sec-t {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: #1C2B1E;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        #mo9f .sec-t b {
+            color: #C9991A
+        }
+
+        #mo9f .sec-s {
+            font-size: 12px;
+            color: #7A7A6E;
+            letter-spacing: .5px;
+            margin-bottom: 6px
+        }
+
+        #mo9f .sec-d {
+            font-size: 13px;
+            color: #7A7A6E;
+            max-width: 420px;
+            margin: 0 auto
+        }
+
+        /* ============================================================
+     TABS
+     ============================================================ */
+        #mo9f .tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 36px
+        }
+
+        #mo9f .tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 22px 16px;
+            background: #fff;
+            border: 1.5px solid #EAE7E0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all .25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #mo9f .tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #C9991A;
+            transform: scaleX(0);
+            transition: transform .25s;
+        }
+
+        #mo9f .tab.on {
+            border-color: #1C2B1E;
+            background: #1C2B1E
+        }
+
+        #mo9f .tab.on::after {
+            transform: scaleX(1)
+        }
+
+        #mo9f .tab-ico {
+            font-size: 22px
+        }
+
+        #mo9f .tab-l {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1C2B1E;
+            transition: color .25s
+        }
+
+        #mo9f .tab-s {
+            font-size: 11px;
+            color: #7A7A6E;
+            transition: color .25s
+        }
+
+        #mo9f .tab.on .tab-l {
+            color: #fff
+        }
+
+        #mo9f .tab.on .tab-s {
+            color: rgba(255, 255, 255, .5)
+        }
+
+        /* ============================================================
+     PANELS
+     ============================================================ */
+        #mo9f .panel {
+            display: none
+        }
+
+        #mo9f .panel.on {
+            display: block
+        }
+
+        /* ============================================================
+     STEPS
+     ============================================================ */
+        #mo9f .steps {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #EAE7E0;
+            border-radius: 4px;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, .04);
+        }
+
+        #mo9f .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            min-width: 0
+        }
+
+        #mo9f .dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #EAE7E0;
+            color: #7A7A6E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+            border: 1.5px solid transparent;
+            transition: all .3s;
+        }
+
+        #mo9f .step-n {
+            font-size: 9px;
+            color: #7A7A6E;
+            letter-spacing: .5px;
+            font-weight: 600;
+            text-transform: uppercase
+        }
+
+        #mo9f .step-l {
+            font-size: 12px;
+            font-weight: 600;
+            color: #7A7A6E
+        }
+
+        #mo9f .step.on .dot {
+            background: #1C2B1E;
+            color: #fff;
+            border-color: #1C2B1E;
+            box-shadow: 0 0 0 3px rgba(28, 43, 30, .12)
+        }
+
+        #mo9f .step.on .step-n,
+        #mo9f .step.on .step-l {
+            color: #1C2B1E
+        }
+
+        #mo9f .step.done .dot {
+            background: #C9991A;
+            color: #1C2B1E;
+            border-color: #C9991A
+        }
+
+        #mo9f .step.done .step-n,
+        #mo9f .step.done .step-l {
+            color: #C9991A
+        }
+
+        #mo9f .sln {
+            flex: 1;
+            height: 1px;
+            background: #EAE7E0;
+            margin: 0 8px;
+            transition: background .3s;
+            min-width: 12px
+        }
+
+        #mo9f .sln.done {
+            background: #C9991A
+        }
+
+        @media(max-width:440px) {
+
+            #mo9f .step-n,
+            #mo9f .step-l {
+                display: none
+            }
+        }
+
+        /* ============================================================
+     CARD
+     ============================================================ */
+        #mo9f .card {
+            background: #fff;
+            border: 1px solid #EAE7E0;
+            border-radius: 4px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .04)
+        }
+
+        #mo9f .card-t {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1C2B1E;
+            margin-bottom: 4px
+        }
+
+        #mo9f .card-s {
+            font-size: 12px;
+            color: #7A7A6E;
+            margin-bottom: 24px;
+            line-height: 1.6
+        }
+
+        /* ============================================================
+     FORM
+     ============================================================ */
+        #mo9f .fg2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        @media(max-width:520px) {
+            #mo9f .fg2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        #mo9f .fg {
+            display: flex;
+            flex-direction: column;
+            gap: 5px
+        }
+
+        #mo9f .fg.full {
+            grid-column: 1/-1
+        }
+
+        #mo9f .fg label {
+            font-size: 10px;
+            font-weight: 600;
+            color: #1C2B1E;
+            letter-spacing: 1px;
+            text-transform: uppercase
+        }
+
+        #mo9f .hint {
+            font-size: 11px;
+            color: #7A7A6E;
+            margin-top: 2px
+        }
+
+        #mo9f .ferr {
+            font-size: 11px;
+            color: #C0392B;
+            margin-top: 3px;
+            font-weight: 500;
+            display: none
+        }
+
+        #mo9f .ferr.on {
+            display: block
+        }
+
+        #mo9f input[type=text],
+        #mo9f input[type=tel],
+        #mo9f input[type=email],
+        #mo9f input[type=password],
+        #mo9f select,
+        #mo9f textarea {
+            padding: 11px 13px;
+            border: 1px solid #D8D5CE;
+            border-radius: 3px;
+            font-size: 14px;
+            color: #1C2B1E;
+            background: #FDFCFA;
+            width: 100%;
+            font-family: Inter, Arial, sans-serif;
+            transition: border-color .2s, box-shadow .2s;
+            -webkit-appearance: none;
+        }
+
+        #mo9f input[type=text]:focus,
+        #mo9f input[type=tel]:focus,
+        #mo9f input[type=email]:focus,
+        #mo9f input[type=password]:focus,
+        #mo9f select:focus,
+        #mo9f textarea:focus {
+            outline: none;
+            border-color: #2D6A4F;
+            box-shadow: 0 0 0 3px rgba(45, 106, 79, .1);
+            background: #fff;
+        }
+
+        #mo9f input.bad,
+        #mo9f select.bad {
+            border-color: #C0392B !important;
+            background: #FDF5F5 !important
+        }
+
+        #mo9f select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A7A6E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-color: #FDFCFA;
+            padding-right: 36px;
+            cursor: pointer;
+        }
+
+        #mo9f[dir='rtl'] select {
+            background-position: left 12px center;
+            padding-right: 13px;
+            padding-left: 36px
+        }
+
+        #mo9f textarea {
+            resize: vertical;
+            min-height: 90px
+        }
+
+        /* ============================================================
+     BOUTONS
+     ============================================================ */
+        #mo9f .btn {
+            display: block;
+            width: 100%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: Inter, Arial, sans-serif;
+            margin-top: 20px;
+            transition: all .22s;
+            letter-spacing: .3px;
+            text-align: center;
+            -webkit-appearance: none;
+        }
+
+        #mo9f .btn-dk {
+            background: #1C2B1E;
+            color: #fff
+        }
+
+        #mo9f .btn-dk:hover {
+            background: #263828;
+            color: #fff
+        }
+
+        #mo9f .btn-gl {
+            background: #C9991A;
+            color: #1C2B1E
+        }
+
+        #mo9f .btn-gl:hover {
+            background: #b8880f;
+            color: #1C2B1E
+        }
+
+        #mo9f .btn:disabled {
+            opacity: .55;
+            cursor: not-allowed
+        }
+
+        /* ============================================================
+     MESSAGES
+     ============================================================ */
+        #mo9f .msg {
+            padding: 11px 14px;
+            border-radius: 3px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            font-weight: 500;
+            display: none;
+            line-height: 1.5
+        }
+
+        #mo9f .msg.err {
+            background: #FEF2F2;
+            color: #922B21;
+            border: 1px solid #F5C6C6;
+            display: block
+        }
+
+        #mo9f .msg.ok {
+            background: #F0FDF4;
+            color: #166534;
+            border: 1px solid #BBF7D0;
+            display: block
+        }
+
+        /* ============================================================
+     PROFIL
+     ============================================================ */
+        #mo9f .pav-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #EAE7E0
+        }
+
+        #mo9f .pav-av {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #1C2B1E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        #mo9f .pav-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1C2B1E;
+            line-height: 1.2
+        }
+
+        #mo9f .pav-ok {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #166534;
+            background: #D1FAE5;
+            padding: 3px 9px;
+            border-radius: 20px;
+            margin-top: 4px
+        }
+
+        #mo9f .pav-id {
+            font-size: 11px;
+            color: #C9991A;
+            font-weight: 600;
+            margin-top: 3px
+        }
+
+        #mo9f .pav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        @media(max-width:440px) {
+            #mo9f .pav-grid {
+                grid-column: 1fr
+            }
+        }
+
+        #mo9f .pav-item {
+            background: #F7F4EF;
+            border: 1px solid #EAE7E0;
+            border-radius: 3px;
+            padding: 12px 14px
+        }
+
+        #mo9f .pav-item .pk {
+            font-size: 9px;
+            font-weight: 700;
+            color: #7A7A6E;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            margin-bottom: 3px
+        }
+
+        #mo9f .pav-item .pv {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1C2B1E;
+            word-break: break-all
+        }
+
+        #mo9f .pav-item.s2 {
+            grid-column: 1/-1
+        }
+
+        #mo9f .pav-note {
+            background: #EAE7E0;
+            border-radius: 3px;
+            padding: 14px 16px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #7A7A6E;
+            line-height: 1.7
+        }
+
+        /* ============================================================
+     DEMANDE
+     ============================================================ */
+        #mo9f .dem {
+            background: #F7F4EF;
+            border: 1px solid #EAE7E0;
+            border-radius: 4px;
+            padding: 28px;
+            margin-top: 16px
+        }
+
+        #mo9f .dem-t {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: #1C2B1E;
+            margin-bottom: 3px
+        }
+
+        #mo9f .dem-s {
+            font-size: 12px;
+            color: #7A7A6E;
+            margin-bottom: 20px
+        }
+
+        /* ============================================================
+     MERCI
+     ============================================================ */
+        #mo9f .merci {
+            background: #fff;
+            border: 2px solid #C9991A;
+            border-radius: 4px;
+            padding: 40px 28px;
+            text-align: center;
+            margin-top: 20px;
+            display: none
+        }
+
+        #mo9f .merci.on {
+            display: block
+        }
+
+        #mo9f .merci-ico {
+            font-size: 52px;
+            margin-bottom: 16px
+        }
+
+        #mo9f .merci-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1C2B1E;
+            margin-bottom: 12px
+        }
+
+        #mo9f .merci-txt {
+            font-size: 14px;
+            color: #7A7A6E;
+            line-height: 1.85;
+            max-width: 420px;
+            margin: 0 auto
+        }
+
+        #mo9f .merci-id {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #C9991A;
+            background: #1C2B1E;
+            padding: 7px 18px;
+            border-radius: 2px;
+            letter-spacing: 2px
+        }
+
+        /* ============================================================
+     CONNEXION
+     ============================================================ */
+        #mo9f .conn-w {
+            max-width: 420px;
+            margin: 0 auto
+        }
+
+        /* ============================================================
+     CONTACT BAND
+     ============================================================ */
+        #mo9f .cband {
+            background: #fff;
+            border: 1px solid #EAE7E0;
+            border-radius: 4px;
+            padding: 20px 28px;
+            margin-top: 40px
+        }
+
+        #mo9f .cband-lbl {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #7A7A6E;
+            margin-bottom: 4px
+        }
+
+        #mo9f .cband-val {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1C2B1E
+        }
+
+        #mo9f .cband-val a {
+            color: #2D6A4F;
+            text-decoration: none
+        }
+
+        #mo9f .cband-val a:hover {
+            text-decoration: underline
+        }
+
+        /* ============================================================
+     FOOTER
+     ============================================================ */
+        #mo9f .footer {
+            background: #1C2B1E;
+            padding: 52px 24px 36px
+        }
+
+        #mo9f .footer-in {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        #mo9f .footer-logo {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 3px
+        }
+
+        #mo9f .footer-logo b {
+            color: #C9991A
+        }
+
+        #mo9f .footer-tag {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .3);
+            letter-spacing: 2px;
+            margin-bottom: 6px
+        }
+
+        #mo9f .footer-info {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .25);
+            margin-bottom: 28px;
+            line-height: 1.8
+        }
+
+        #mo9f .footer-div {
+            height: 1px;
+            background: rgba(255, 255, 255, .06);
+            margin: 24px 0
+        }
+
+        #mo9f .footer-tl {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 14px
+        }
+
+        #mo9f .footer-names {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 16px
+        }
+
+        #mo9f .footer-nm {
+            border: 1px solid rgba(201, 153, 26, .2);
+            border-radius: 3px;
+            padding: 12px 24px;
+            text-align: center
+        }
+
+        #mo9f .footer-nm .role {
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #C9991A;
+            margin-bottom: 4px
+        }
+
+        #mo9f .footer-nm .nval {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff
+        }
+
+        #mo9f .footer-email {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .4);
+            margin-bottom: 6px
+        }
+
+        #mo9f .footer-email a {
+            color: #C9991A;
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        #mo9f .footer-copy {
+            font-size: 10px;
+            color: rgba(255, 255, 255, .18);
+            margin-top: 20px
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='mo9f' dir='ltr'>
+
+        <nav class='nav'>
+            <div class='nav-logo'>MO9F <b>DIGITAL</b></div>
+            <div class='lsw'>
+                <button class='lb act' type='button' onclick='qSetLang("fr")'>FR</button>
+                <button class='lb' type='button' onclick='qSetLang("ar")'>AR</button>
+                <button class='lb' type='button' onclick='qSetLang("en")'>EN</button>
+            </div>
+        </nav>
+
+        <div class='hero'>
+            <div class='hero-c'>
+                <div class='hero-title'>MO9F <b>DIGITAL</b></div>
+                <div class='hero-subtitle' id='d_hero_sub'>Plateforme Agricole</div>
+            </div>
+            <div class='hero-main'>
+                <h2 id='d_hero_title'>Besoin de main-d&apos;œuvre pour votre domaine ? Ne perdez plus de temps.</h2>
+                <p class='hero-sub' id='d_hero_sub2'>Ne perdez plus votre temps — un seul message suffit.</p>
+                <div class='hero-box'>
+                    <div class='hero-box-lbl' id='d_miss_lbl'>Notre mission</div>
+                    <p id='d_miss_txt'>Nous connectons les agriculteurs avec la main-d&apos;œuvre appropriée.</p>
+                </div>
+                <div class='pill' id='d_pill'>Région Souss-Massa uniquement</div>
+            </div>
+        </div>
+
+        <div class='band'></div>
+
+        <div class='main'>
+            <div class='sec'>
+                <div class='sec-t'>MO9F <b>DIGITAL</b></div>
+                <div class='sec-s' id='d_sec_sub'>Plateforme Agricole</div>
+                <p class='sec-d' id='d_sec_desc'>S&apos;identifier ou créer un compte pour accéder à votre espace.</p>
+            </div>
+
+            <div class='tabs'>
+                <div class='tab on' id='t_ins' onclick='qTab("ins")'>
+                    <div class='tab-ico'>&#128100;</div>
+                    <div class='tab-l' id='d_tab_ins'>Inscription</div>
+                    <div class='tab-s' id='d_tab_ins_s'>Créer un compte</div>
+                </div>
+                <div class='tab' id='t_conn' onclick='qTab("conn")'>
+                    <div class='tab-ico'>&#128273;</div>
+                    <div class='tab-l' id='d_tab_conn'>Connexion</div>
+                    <div class='tab-s' id='d_tab_conn_s'>Déjà inscrit(e)</div>
+                </div>
+            </div>
+
+            <div class='panel on' id='panel_ins'>
+                <div class='steps'>
+                    <div class='step on' id='st1'>
+                        <div class='dot'>1</div>
+                        <div>
+                            <div class='step-n' id='d_s1n'>Etape 1</div>
+                            <div class='step-l' id='d_s1l'>Coordonnées</div>
+                        </div>
+                    </div>
+                    <div class='sln' id='sln1'></div>
+                    <div class='step' id='st2'>
+                        <div class='dot'>2</div>
+                        <div>
+                            <div class='step-n' id='d_s2n'>Etape 2</div>
+                            <div class='step-l' id='d_s2l'>Ma demande</div>
+                        </div>
+                    </div>
+                    <div class='sln' id='sln2'></div>
+                    <div class='step' id='st3'>
+                        <div class='dot'>3</div>
+                        <div>
+                            <div class='step-n' id='d_s3n'>Etape 3</div>
+                            <div class='step-l' id='d_s3l'>Confirmation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id='e1'>
+                    <div class='card'>
+                        <div class='card-t' id='d_f1t'>Vos coordonnées</div>
+                        <p class='card-s' id='d_f1s'>Tous les champs marqués * sont obligatoires.</p>
+                        <div class='msg' id='msg1'></div>
+                        <div class='fg2'>
+                            <div class='fg'>
+                                <label id='d_lnom'>Nom *</label>
+                                <input type='text' id='p_nom' placeholder='Benhaddou' />
+                            </div>
+                            <div class='fg'>
+                                <label id='d_lprenom'>Prénom *</label>
+                                <input type='text' id='p_prenom' placeholder='Ahmed' />
+                            </div>
+                            <div class='fg'>
+                                <label id='d_lemail'>Email *</label>
+                                <input type='email' id='p_email' placeholder='exemple@gmail.com' />
+                                <div class='ferr' id='ferr_email'>Email invalide</div>
+                            </div>
+                            <div class='fg'>
+                                <label id='d_ltel'>Téléphone WhatsApp *</label>
+                                <input type='tel' id='p_tel' placeholder='0612345678' oninput='qVT()' />
+                                <div class='ferr' id='ferr_tel'>Numéro invalide — 10 chiffres</div>
+                            </div>
+                            <div class='fg'>
+                                <label id='d_lprov'>Province *</label>
+                                <select id='p_prov'>
+                                    <option value=''>Sélectionnez votre province</option>
+                                    <option value='Agadir-Ida Ou Tanane'>Agadir-Ida Ou Tanane</option>
+                                    <option value='Inezgane-Ait Melloul'>Inezgane-Aït Melloul</option>
+                                    <option value='Chtouka-Ait Baha'>Chtouka-Aït Baha</option>
+                                    <option value='Taroudant'>Taroudant</option>
+                                    <option value='Tiznit'>Tiznit</option>
+                                    <option value='Tata'>Tata</option>
+                                </select>
+                                <div class='ferr' id='ferr_prov'>Province requise</div>
+                            </div>
+                            <div class='fg'>
+                                <label id='d_lmet'>Métier *</label>
+                                <select id='p_met' onchange='qCA()'>
+                                    <option value=''>Sélectionnez votre métier</option>
+                                    <option value='Technicien agricole'>Technicien agricole</option>
+                                    <option value='Gerant exploitation'>Gérant d&apos;exploitation</option>
+                                    <option value='Ingenieur agronome'>Ingénieur agronome</option>
+                                    <option value='Responsable traitement'>Responsable de traitement</option>
+                                    <option value='Chef equipe'>Chef d&apos;équipe</option>
+                                    <option value='autre' id='d_met_autre'>Autre</option>
+                                </select>
+                                <div class='ferr' id='ferr_met'>Métier requis</div>
+                            </div>
+                            <div class='fg full' id='autre_box' style='display:none'>
+                                <label id='d_lautre'>Précisez votre métier *</label>
+                                <input type='text' id='p_autre' placeholder='Décrivez votre poste...' />
+                            </div>
+                            <div class='fg full'>
+                                <label id='d_lcode'>Créez un code d&apos;accès personnel *</label>
+                                <input type='password' id='p_code' placeholder='4 caractères minimum' />
+                                <div class='hint' id='d_hint_code'>Ce code, avec votre email, vous servira à vous
+                                    reconnecter.</div>
+                            </div>
+                        </div>
+                        <button class='btn btn-dk' type='button' id='btn_ins' onclick='qValider1()'>Créer mon compte
+                            &#8594;</button>
+                    </div>
+                </div>
+
+                <div id='e2' style='display:none'>
+                    <div class='card'>
+                        <span id='d_badge'
+                            style='display:inline-block;background:#C9991A;color:#1C2B1E;font-size:10px;font-weight:700;padding:4px 11px;border-radius:2px;margin-bottom:16px;letter-spacing:.5px'>&#10003;
+                            Compte activé</span>
+                        <div class='pav-top'>
+                            <div class='pav-av' id='e2_av'>A</div>
+                            <div>
+                                <div class='pav-name' id='e2_name'>Bienvenue</div>
+                                <div class='pav-ok' id='d_bverif'>&#10003; Profil enregistré</div>
+                                <div class='pav-id' id='e2_id'>#MD-0000</div>
+                            </div>
+                        </div>
+                        <div class='pav-grid' id='e2_grid'></div>
+                        <div class='pav-note' id='d_note_wa'>Notre équipe Mo9f Digital vous contacte très prochainement
+                            pour organiser la main-d&apos;œuvre dans la région <strong>Souss-Massa</strong>.</div>
+                    </div>
+
+                    <div class='dem'>
+                        <div class='dem-t' id='d_demt'>Votre besoin en main-d&apos;œuvre</div>
+                        <p class='dem-s' id='d_dems'>Décrivez votre demande, elle sera transmise directement à notre
+                            équipe.</p>
+                        <div class='msg' id='msg_dem'></div>
+                        <div class='fg2'>
+                            <div class='fg'>
+                                <label id='d_lcult'>Type de culture *</label>
+                                <select id='d_culture'>
+                                    <option value=''>Sélectionnez</option>
+                                    <option value='Maraichage'>Maraîchage (légumes, tomates...)</option>
+                                    <option value='Agrumes'>Agrumes (citrons, oranges...)</option>
+                                    <option value='Arganier'>Arganier</option>
+                                    <option value='Cereales'>Céréales (blé, orge...)</option>
+                                    <option value='Fruits rouges'>Fruits rouges</option>
+                                    <option value='Autre'>Autre / Mixte</option>
+                                </select>
+                            </div>
+                            <div class='fg'>
+                                <label id='d_lnb'>Nombre d&apos;ouvriers *</label>
+                                <select id='d_nb'>
+                                    <option value=''>Sélectionnez</option>
+                                    <option value='1-5'>1 à 5 personnes</option>
+                                    <option value='6-15'>6 à 15 personnes</option>
+                                    <option value='16-30'>16 à 30 personnes</option>
+                                    <option value='+30'>Plus de 30 personnes</option>
+                                </select>
+                            </div>
+                            <div class='fg'>
+                                <label id='d_ldate'>Date de début *</label>
+                                <input type='text' id='d_date' placeholder='ex : 15 juillet 2026' />
+                            </div>
+                            <div class='fg'>
+                                <label id='d_lduree'>Durée estimée *</label>
+                                <select id='d_duree'>
+                                    <option value=''>Sélectionnez</option>
+                                    <option value='1 journee'>1 journée</option>
+                                    <option value='Quelques jours'>Quelques jours</option>
+                                    <option value='1 semaine'>1 semaine</option>
+                                    <option value='1 mois ou plus'>1 mois ou plus</option>
+                                    <option value='Toute une saison'>Toute une saison</option>
+                                </select>
+                            </div>
+                            <div class='fg full'>
+                                <label id='d_lnotes'>Informations complémentaires</label>
+                                <textarea id='d_notes'
+                                    placeholder='Tâches, horaires, conditions particulières...'></textarea>
+                            </div>
+                        </div>
+                        <button class='btn btn-gl' type='button' id='btn_dem' onclick='qEnvoyer()'>Envoyer ma demande
+                            &#8594;</button>
+                    </div>
+                </div>
+
+                <div class='merci' id='merci_box'>
+                    <div class='merci-ico'>&#127807;</div>
+                    <div class='merci-title' id='d_merci_t'>Merci pour votre confiance !</div>
+                    <p class='merci-txt' id='d_merci_txt'>Notre équipe va vous contacter dans les plus brefs délais sur
+                        votre WhatsApp pour organiser votre main-d&apos;œuvre dans la région Souss-Massa.</p>
+                    <div class='merci-id' id='merci_id'>#MD-0000</div>
+                </div>
+            </div>
+
+            <div class='panel' id='panel_conn'>
+                <div class='card conn-w'>
+                    <div class='card-t' id='d_conn_t'>Connexion à votre espace</div>
+                    <p class='card-s' id='d_conn_s'>Entrez votre email et votre code d&apos;accès personnel.</p>
+                    <div class='msg' id='msg_conn'></div>
+                    <div style='display:flex;flex-direction:column;gap:16px'>
+                        <div class='fg'>
+                            <label id='d_lcemail'>Email *</label>
+                            <input type='email' id='conn_email' placeholder='exemple@gmail.com' />
+                            <div class='ferr' id='ferr_cemail'>Email invalide</div>
+                        </div>
+                        <div class='fg'>
+                            <label id='d_lccode'>Code d&apos;accès *</label>
+                            <input type='password' id='conn_code' placeholder='Votre code personnel...' />
+                            <div class='ferr' id='ferr_ccode'>Code requis</div>
+                        </div>
+                    </div>
+                    <button class='btn btn-dk' type='button' id='btn_conn' onclick='qValConn()'>Se connecter
+                        &#8594;</button>
+                    <p style='font-size:11px;color:#7A7A6E;text-align:center;margin-top:14px;line-height:1.6'
+                        id='d_conn_hint'>Utilisez l&apos;email et le code que vous avez définis lors de votre
+                        inscription.</p>
+                </div>
+            </div>
+
+            <div class='cband'>
+                <div class='cband-lbl' id='d_clbl'>Contact &amp; Collaboration</div>
+                <div class='cband-val'><a href='mailto:mofdigital1@gmail.com'>mofdigital1@gmail.com</a></div>
+            </div>
+        </div>
+
+        <div class='footer'>
+            <div class='footer-in'>
+                <div class='footer-logo'>MO9F <b>DIGITAL</b></div>
+                <div class='footer-tag' id='d_ftag'>Plateforme agricole</div>
+                <div class='footer-info' id='d_finfo'>Main-d&apos;œuvre agricole · Région Souss-Massa · Maroc</div>
+                <div class='footer-div'></div>
+                <div class='footer-tl' id='d_fteam'>Equipe fondatrice</div>
+                <div class='footer-names'>
+                    <div class='footer-nm'>
+                        <div class='role' id='d_frole1'>Co-Fondatrice</div>
+                        <div class='nval'>BENDOU Hajar</div>
+                    </div>
+                    <div class='footer-nm'>
+                        <div class='role' id='d_frole2'>Co-Fondatrice</div>
+                        <div class='nval'>LAGHROUCHE Salma</div>
+                    </div>
+                </div>
+                <div class='footer-email' id='d_femail'>Email de collaboration : <a
+                        href='mailto:mofdigital1@gmail.com'>mofdigital1@gmail.com</a></div>
+                <div class='footer-copy'>&#169; 2026 Mo9f Digital — Tous droits réservés</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type='text/javascript'>
+        var LANG = 'fr';
+        var QUD = {};
+
+        var TX = {
+            fr: {
+                hero_sub: 'Plateforme Agricole',
+                hero_title: "Besoin de main-d'œuvre pour votre domaine ? Ne perdez plus de temps.",
+                hero_sub2: "Ne perdez plus votre temps — un seul message suffit.",
+                miss_lbl: 'Notre mission',
+                miss_txt: "Nous connectons les agriculteurs avec la main-d'œuvre appropriée.",
+                pill: 'Région Souss-Massa uniquement',
+                sec_sub: 'Plateforme Agricole',
+                sec_desc: "S'identifier ou créer un compte pour accéder à votre espace.",
+                tab_ins: 'Inscription', tab_ins_s: 'Créer un compte',
+                tab_conn: 'Connexion', tab_conn_s: 'Déjà inscrit(e)',
+                s1n: 'Etape 1', s1l: 'Coordonnées', s2n: 'Etape 2', s2l: 'Ma demande', s3n: 'Etape 3', s3l: 'Confirmation',
+                f1t: 'Vos coordonnées', f1s: 'Tous les champs marqués * sont obligatoires.',
+                lnom: 'Nom *', lprenom: 'Prénom *', lemail: 'Email *', ltel: 'Téléphone WhatsApp *',
+                lprov: 'Province *', lmet: 'Métier *', lautre: 'Précisez votre métier *', met_autre: 'Autre',
+                lcode: "Créez un code d'accès personnel *",
+                hint_code: "Ce code, avec votre email, vous servira à vous reconnecter.",
+                btn_ins: 'Créer mon compte →',
+                badge: '✓ Compte activé', bverif: '✓ Profil enregistré',
+                note_wa: "Notre équipe Mo9f Digital vous contacte très prochainement pour organiser la main-d'œuvre dans la région <strong>Souss-Massa</strong>.",
+                demt: "Votre besoin en main-d'œuvre", dems: "Décrivez votre demande, elle sera transmise directement à notre équipe.",
+                lcult: 'Type de culture *', lnb: "Nombre d'ouvriers *",
+                ldate: 'Date de début *', lduree: 'Durée estimée *', lnotes: 'Informations complémentaires',
+                btn_dem: 'Envoyer ma demande →',
+                merci_t: 'Merci pour votre confiance !',
+                merci_txt: "Notre équipe va vous contacter dans les plus brefs délais sur votre WhatsApp pour organiser votre main-d'œuvre dans la région Souss-Massa.",
+                conn_t: 'Connexion à votre espace', conn_s: "Entrez votre email et votre code d'accès personnel.",
+                lcemail: 'Email *', lccode: "Code d'accès *", btn_conn: 'Se connecter →',
+                conn_hint: "Utilisez l'email et le code que vous avez définis lors de votre inscription.",
+                clbl: 'Contact & Collaboration',
+                ftag: 'Plateforme agricole', finfo: "Main-d'œuvre agricole · Région Souss-Massa · Maroc",
+                fteam: 'Equipe fondatrice', frole: 'Co-Fondatrice',
+                femail: 'Email de collaboration : <a href="mailto:mofdigital1@gmail.com">mofdigital1@gmail.com</a>',
+                e_req: 'Champs manquants : ',
+                e_email: 'Adresse email invalide.', e_tel: 'Numéro invalide — 10 chiffres requis.',
+                e_met: 'Veuillez préciser votre métier.', e_code: "Code d'accès : 4 caractères minimum.",
+                e_dem: 'Veuillez remplir tous les champs requis.',
+                e_conn: "Aucun compte trouvé ou email/code incorrect.",
+                ok_conn: "Connexion réussie. Bienvenue {name} sur Mo9f Digital !"
+            },
+            ar: {
+                hero_sub: 'منصة فلاحية',
+                hero_title: 'هل تحتاج إلى أيدي عاملة لضيعتك؟ لا تضيع الوقت بعد الآن',
+                hero_sub2: 'لا تضيع وقتك — رسالة واحدة كافية',
+                miss_lbl: 'مهمتنا',
+                miss_txt: 'نربط المزارعين باليد العاملة المناسبة',
+                pill: 'جهة سوس ماسة فقط',
+                sec_sub: 'منصة فلاحية',
+                sec_desc: 'تسجيل الدخول أو إنشاء حساب للوصول إلى فضائك.',
+                tab_ins: 'تسجيل', tab_ins_s: 'إنشاء حساب',
+                tab_conn: 'دخول', tab_conn_s: 'لديك حساب بالفعل',
+                s1n: 'الخطوة 1', s1l: 'معلوماتك', s2n: 'الخطوة 2', s2l: 'طلبي', s3n: 'الخطوة 3', s3l: 'تأكيد',
+                f1t: 'معلوماتك', f1s: 'جميع الحقول المعلّمة بـ * إلزامية.',
+                lnom: 'الاسم العائلي *', lprenom: 'الاسم الشخصي *', lemail: 'البريد الإلكتروني *', ltel: 'رقم الواتساب *',
+                lprov: 'الإقليم *', lmet: 'المهنة *', lautre: 'وضّح مهنتك *', met_autre: 'أخرى',
+                lcode: 'أنشئ رمز دخول شخصي *',
+                hint_code: 'هذا الرمز، مع بريدك الإلكتروني، سيمكنك من الدخول لاحقاً.',
+                btn_ins: 'إنشاء حسابي ←',
+                badge: '✓ تم تفعيل الحساب', bverif: '✓ تم تسجيل الملف',
+                note_wa: 'سيتواصل معك فريق Mo9f Digital قريباً لتنظيم اليد العاملة في جهة <strong>سوس ماسة</strong>.',
+                demt: 'احتياجك من اليد العاملة', dems: 'صِف طلبك، سيُرسل مباشرة إلى فريقنا.',
+                lcult: 'نوع الزراعة *', lnb: 'عدد العمال *',
+                ldate: 'تاريخ البداية *', lduree: 'المدة المتوقعة *', lnotes: 'معلومات إضافية',
+                btn_dem: 'إرسال طلبي ←',
+                merci_t: 'شكراً لثقتك !',
+                merci_txt: 'سيتواصل معك فريقنا في أقرب وقت ممكن على واتساب لتنظيم اليد العاملة في جهة سوس ماسة.',
+                conn_t: 'الدخول إلى فضائك', conn_s: 'أدخل بريدك الإلكتروني ورمز الدخول الشخصي.',
+                lcemail: 'البريد الإلكتروني *', lccode: 'رمز الدخول *', btn_conn: 'دخول ←',
+                conn_hint: 'استخدم البريد والرمز اللذين حددتهما عند التسجيل.',
+                clbl: 'التواصل والتعاون',
+                ftag: 'منصة فلاحية', finfo: 'يد عاملة فلاحية · جهة سوس ماسة · المغرب',
+                fteam: 'الفريق المؤسس', frole: 'مؤسِّسة مشاركة',
+                femail: 'البريد الإلكتروني للتواصل : <a href="mailto:mofdigital1@gmail.com">mofdigital1@gmail.com</a>',
+                e_req: 'الحقول الناقصة : ',
+                e_email: 'البريد الإلكتروني غير صحيح.', e_tel: 'الرقم غير صحيح — 10 أرقام مطلوبة.',
+                e_met: 'يرجى توضيح مهنتك.', e_code: 'يجب أن يتكون رمز الدخول من 4 خانات على الأقل.',
+                e_dem: 'يرجى ملء جميع الحقول الإلزامية.',
+                e_conn: 'لم يُعثر على حساب أو بريد/رمز غير صحيح.',
+                ok_conn: 'تم الدخول بنجاح. مرحباً {name} في Mo9f Digital !'
+            },
+            en: {
+                hero_sub: 'Agricultural Platform',
+                hero_title: "Need labor for your farm? Don't waste time anymore.",
+                hero_sub2: "Don't waste your time — a single message is enough.",
+                miss_lbl: 'Our mission',
+                miss_txt: 'We connect farmers with the right workforce.',
+                pill: 'Souss-Massa region only',
+                sec_sub: 'Agricultural Platform',
+                sec_desc: 'Log in or create an account to access your space.',
+                tab_ins: 'Register', tab_ins_s: 'Create an account',
+                tab_conn: 'Login', tab_conn_s: 'Already registered',
+                s1n: 'Step 1', s1l: 'Your details', s2n: 'Step 2', s2l: 'My request', s3n: 'Step 3', s3l: 'Confirmation',
+                f1t: 'Your details', f1s: 'All fields marked * are required.',
+                lnom: 'Last name *', lprenom: 'First name *', lemail: 'Email *', ltel: 'WhatsApp number *',
+                lprov: 'Province *', lmet: 'Occupation *', lautre: 'Specify your occupation *', met_autre: 'Other',
+                lcode: 'Create a personal access code *',
+                hint_code: 'This code, with your email, will let you log back in.',
+                btn_ins: 'Create my account →',
+                badge: '✓ Account activated', bverif: '✓ Profile registered',
+                note_wa: 'The Mo9f Digital team will contact you soon to organize workers in the <strong>Souss-Massa</strong> region.',
+                demt: 'Your workforce needs', dems: 'Describe your request, it will be sent directly to our team.',
+                lcult: 'Crop type *', lnb: 'Number of workers *',
+                ldate: 'Start date *', lduree: 'Estimated duration *', lnotes: 'Additional information',
+                btn_dem: 'Send my request →',
+                merci_t: 'Thank you for your trust!',
+                merci_txt: 'Our team will contact you as soon as possible on your WhatsApp to organize workers in the Souss-Massa region.',
+                conn_t: 'Log in to your space', conn_s: 'Enter your email and your personal access code.',
+                lcemail: 'Email *', lccode: 'Access code *', btn_conn: 'Log in →',
+                conn_hint: 'Use the email and code you set during registration.',
+                clbl: 'Contact & Collaboration',
+                ftag: 'Agricultural platform', finfo: 'Agricultural workforce · Souss-Massa Region · Morocco',
+                fteam: 'Founding team', frole: 'Co-Founder',
+                femail: 'Collaboration email: <a href="mailto:mofdigital1@gmail.com">mofdigital1@gmail.com</a>',
+                e_req: 'Missing fields: ',
+                e_email: 'Invalid email address.', e_tel: 'Invalid number — 10 digits required.',
+                e_met: 'Please specify your occupation.', e_code: 'Access code must be at least 4 characters.',
+                e_dem: 'Please fill in all required fields.',
+                e_conn: 'No account found or incorrect email/code.',
+                ok_conn: 'Login successful. Welcome {name} to Mo9f Digital!'
+            }
+        };
+
+        function qT(k) { return (TX[LANG] && TX[LANG][k]) ? TX[LANG][k] : (TX['fr'][k] || ''); }
+        function qG(id) { return document.getElementById(id); }
+        function qGV(id) { var e = qG(id); return e ? e.value.trim() : ''; }
+        function qSet(id, v) { var e = qG(id); if (e && v !== undefined) e.innerHTML = v; }
+        function qMsg(id, txt, t) { var e = qG(id); if (!e) return; e.innerHTML = txt; e.className = 'msg ' + t; }
+        function qHide(id) { var e = qG(id); if (e) e.className = 'msg'; }
+        function qScroll() { try { qG('mo9f').scrollTo({ top: 0, behavior: 'smooth' }); } catch (ex) { } }
+
+        function qSetLang(l) {
+            LANG = l;
+            var bs = document.querySelectorAll('#mo9f .lb');
+            for (var i = 0; i < bs.length; i++) bs[i].classList.remove('act');
+            if (l === 'fr') bs[0].classList.add('act');
+            if (l === 'ar') bs[1].classList.add('act');
+            if (l === 'en') bs[2].classList.add('act');
+            qG('mo9f').setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+            var t = TX[l]; if (!t) return;
+            var M = {
+                d_hero_sub: 'hero_sub', d_hero_title: 'hero_title', d_hero_sub2: 'hero_sub2',
+                d_miss_lbl: 'miss_lbl', d_miss_txt: 'miss_txt', d_pill: 'pill',
+                d_sec_sub: 'sec_sub', d_sec_desc: 'sec_desc',
+                d_tab_ins: 'tab_ins', d_tab_ins_s: 'tab_ins_s',
+                d_tab_conn: 'tab_conn', d_tab_conn_s: 'tab_conn_s',
+                d_s1n: 's1n', d_s1l: 's1l', d_s2n: 's2n', d_s2l: 's2l', d_s3n: 's3n', d_s3l: 's3l',
+                d_f1t: 'f1t', d_f1s: 'f1s',
+                d_lnom: 'lnom', d_lprenom: 'lprenom', d_lemail: 'lemail', d_ltel: 'ltel',
+                d_lprov: 'lprov', d_lmet: 'lmet', d_lautre: 'lautre', d_met_autre: 'met_autre',
+                d_lcode: 'lcode', d_hint_code: 'hint_code', btn_ins: 'btn_ins',
+                d_badge: 'badge', d_bverif: 'bverif', d_note_wa: 'note_wa',
+                d_demt: 'demt', d_dems: 'dems', d_lcult: 'lcult', d_lnb: 'lnb',
+                d_ldate: 'ldate', d_lduree: 'lduree', d_lnotes: 'lnotes', btn_dem: 'btn_dem',
+                d_merci_t: 'merci_t', d_merci_txt: 'merci_txt',
+                d_conn_t: 'conn_t', d_conn_s: 'conn_s', d_lcemail: 'lcemail',
+                d_lccode: 'lccode', btn_conn: 'btn_conn', d_conn_hint: 'conn_hint',
+                d_clbl: 'clbl', d_ftag: 'ftag', d_finfo: 'finfo', d_fteam: 'fteam',
+                d_frole1: 'frole', d_frole2: 'frole', d_femail: 'femail'
+            };
+            for (var id in M) { qSet(id, t[M[id]]); }
+        }
+
+        function qTab(w) {
+            qG('panel_ins').classList.remove('on');
+            qG('panel_conn').classList.remove('on');
+            qG('t_ins').classList.remove('on');
+            qG('t_conn').classList.remove('on');
+            qG('panel_' + w).classList.add('on');
+            qG('t_' + w).classList.add('on');
+            qScroll();
+        }
+
+        function qVT() {
+            var v = qG('p_tel').value.replace(/\D/g, '');
+            var ok = /^[0-9]{10}$/.test(v);
+            qG('ferr_tel').className = (!ok && v.length > 0) ? 'ferr on' : 'ferr';
+            qG('p_tel').className = (!ok && v.length > 0) ? 'bad' : '';
+        }
+
+        function qCA() {
+            var v = qGV('p_met');
+            qG('autre_box').style.display = (v === 'autre') ? 'block' : 'none';
+            if (v !== 'autre') qG('p_autre').value = '';
+        }
+
+        function qValider1() {
+            var nom = qGV('p_nom');
+            var prenom = qGV('p_prenom');
+            var email = qGV('p_email');
+            var tel = qG('p_tel').value.replace(/\D/g, '');
+            var prov = qG('p_prov').value;
+            var met = qG('p_met').value;
+            var autre = qGV('p_autre');
+            var code = qGV('p_code');
+
+            qHide('msg1');
+            ['ferr_email', 'ferr_tel', 'ferr_prov', 'ferr_met'].forEach(function (id) {
+                qG(id).className = 'ferr';
+            });
+            ['p_tel', 'p_prov', 'p_met'].forEach(function (id) {
+                qG(id).className = '';
+            });
+
+            var miss = [];
+            if (!nom) miss.push(qT('lnom').replace(' *', ''));
+            if (!prenom) miss.push(qT('lprenom').replace(' *', ''));
+            if (!email) miss.push(qT('lemail').replace(' *', ''));
+            if (!tel) miss.push(qT('ltel').replace(' *', ''));
+            if (!prov) {
+                miss.push(qT('lprov').replace(' *', ''));
+                qG('ferr_prov').className = 'ferr on';
+                qG('p_prov').className = 'bad';
+            }
+            if (!met) {
+                miss.push(qT('lmet').replace(' *', ''));
+                qG('ferr_met').className = 'ferr on';
+                qG('p_met').className = 'bad';
+            }
+            if (!code) miss.push(qT('lcode').replace(' *', ''));
+
+            if (miss.length > 0) {
+                qMsg('msg1', qT('e_req') + miss.join(', ') + '.', 'err');
+                return;
+            }
+
+            if (email.indexOf('@') < 1 || email.lastIndexOf('.') < email.indexOf('@') + 2) {
+                qMsg('msg1', qT('e_email'), 'err');
+                qG('ferr_email').className = 'ferr on'; return;
+            }
+            if (!/^[0-9]{10}$/.test(tel)) {
+                qMsg('msg1', qT('e_tel'), 'err');
+                qG('ferr_tel').className = 'ferr on';
+                qG('p_tel').className = 'bad'; return;
+            }
+            if (met === 'autre' && !autre) {
+                qMsg('msg1', qT('e_met'), 'err'); return;
+            }
+            if (code.length < 4) {
+                qMsg('msg1', qT('e_code'), 'err'); return;
+            }
+
+            QUD = {
+                nom: nom, prenom: prenom, email: email, tel: tel,
+                province: prov, metier: (met === 'autre') ? autre : met,
+                code: code,
+                id: '#MD-' + Math.floor(1000 + Math.random() * 9000)
+            };
+
+            try { localStorage.setItem('mo9f_' + email.toLowerCase(), JSON.stringify(QUD)); } catch (e) { }
+
+            qG('e1').style.display = 'none';
+            qG('e2').style.display = 'block';
+            qG('st1').className = 'step done';
+            qG('st2').className = 'step on';
+            qG('sln1').className = 'sln done';
+            qG('e2_av').textContent = QUD.prenom.charAt(0).toUpperCase();
+            qG('e2_name').textContent = QUD.prenom + ' ' + QUD.nom;
+            qG('e2_id').textContent = QUD.id;
+            qG('merci_id').textContent = QUD.id;
+            qG('d_note_wa').innerHTML = qT('note_wa');
+            qG('e2_grid').innerHTML =
+                '<div class="pav-item"><div class="pk">' + qT('lnom').replace(' *', '') + '</div><div class="pv">' + QUD.nom + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lprenom').replace(' *', '') + '</div><div class="pv">' + QUD.prenom + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lemail').replace(' *', '') + '</div><div class="pv">' + QUD.email + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('ltel').replace(' *', '') + '</div><div class="pv">' + QUD.tel + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + QUD.province + '</div></div>' +
+                '<div class="pav-item s2"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + QUD.metier + '</div></div>';
+            qScroll();
+
+            qFS({
+                'Nom': QUD.nom, 'Prenom': QUD.prenom, 'Email': QUD.email, 'Telephone': QUD.tel,
+                'Province': QUD.province, 'Metier': QUD.metier, 'ID': QUD.id,
+                '_replyto': QUD.email, '_subject': 'Inscription Mo9f Digital - ' + QUD.prenom + ' ' + QUD.nom
+            });
+
+            var wm = 'Nouvelle inscription Mo9f Digital\nNom: ' + QUD.prenom + ' ' + QUD.nom +
+                '\nTel: ' + QUD.tel + '\nEmail: ' + QUD.email + '\nProvince: ' + QUD.province +
+                '\nMetier: ' + QUD.metier + '\nID: ' + QUD.id;
+            qWA('212656682654', wm);
+            setTimeout(function () { qWA('212657065239', wm); }, 1500);
+        }
+
+        function qEnvoyer() {
+            var cult = qG('d_culture').value;
+            var nb = qG('d_nb').value;
+            var date = qGV('d_date');
+            var duree = qG('d_duree').value;
+            var notes = qGV('d_notes');
+
+            qHide('msg_dem');
+            if (!cult || !nb || !date || !duree) {
+                qMsg('msg_dem', qT('e_dem'), 'err'); return;
+            }
+
+            var btn = qG('btn_dem');
+            if (btn) { btn.disabled = true; btn.textContent = '...'; }
+
+            qFS({
+                'Nom': QUD.nom || '', 'Prenom': QUD.prenom || '', 'Telephone': QUD.tel || '',
+                'Province': QUD.province || '', 'Metier': QUD.metier || '',
+                'Culture': cult, 'Nb_ouvriers': nb, 'Date_debut': date, 'Duree': duree,
+                'Notes': notes || 'Aucune', 'ID': QUD.id || '',
+                '_subject': 'Demande main-oeuvre - ' + (QUD.prenom || '') + ' ' + (QUD.nom || '')
+            });
+
+            var wm2 = 'Demande main-oeuvre Mo9f Digital\nClient: ' + (QUD.prenom || '') + ' ' + (QUD.nom || '') +
+                '\nTel: ' + (QUD.tel || '') + '\nProvince: ' + (QUD.province || '') +
+                '\nCulture: ' + cult + '\nOuvriers: ' + nb + '\nDebut: ' + date +
+                '\nDuree: ' + duree + '\nNotes: ' + (notes || 'Aucune') + '\nID: ' + (QUD.id || '');
+            qWA('212656682654', wm2);
+            setTimeout(function () { qWA('212657065239', wm2); }, 1500);
+
+            qG('e2').style.display = 'none';
+            qG('st2').className = 'step done';
+            qG('st3').className = 'step on';
+            qG('sln2').className = 'sln done';
+            qSet('d_merci_t', qT('merci_t'));
+            qSet('d_merci_txt', qT('merci_txt'));
+            qG('merci_box').className = 'merci on';
+            qScroll();
+        }
+
+        function qValConn() {
+            var email = qGV('conn_email'), code = qGV('conn_code');
+            qHide('msg_conn');
+            qG('ferr_cemail').className = 'ferr';
+            qG('ferr_ccode').className = 'ferr';
+
+            if (!email || email.indexOf('@') < 1) {
+                qG('ferr_cemail').className = 'ferr on';
+                qMsg('msg_conn', qT('e_email'), 'err'); return;
+            }
+            if (!code || code.length < 4) {
+                qG('ferr_ccode').className = 'ferr on';
+                qMsg('msg_conn', qT('e_code'), 'err'); return;
+            }
+
+            if (QUD.email && email.toLowerCase() === QUD.email.toLowerCase() && code === QUD.code) {
+                qMsg('msg_conn', qT('ok_conn').replace('{name}', QUD.prenom), 'ok'); return;
+            }
+            var raw = null;
+            try { raw = localStorage.getItem('mo9f_' + email.toLowerCase()); } catch (e) { }
+            if (raw) {
+                var d = null;
+                try { d = JSON.parse(raw); } catch (e) { }
+                if (d && d.code === code) {
+                    qMsg('msg_conn', qT('ok_conn').replace('{name}', d.prenom), 'ok'); return;
+                }
+            }
+            qMsg('msg_conn', qT('e_conn'), 'err');
+        }
+
+        function qFS(data) {
+            try {
+                var fd = new FormData();
+                for (var k in data) fd.append(k, data[k]);
+                fetch('https://formspree.io/f/xeoqljpq', {
+                    method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+                }).catch(function () { });
+            } catch (e) { }
+        }
+
+        function qWA(num, msg) {
+            var img = new Image();
+            img.src = 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
+        }
+    </script>
+</body>
+
+</html>
