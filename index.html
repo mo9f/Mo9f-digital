@@ -118,6 +118,7 @@
                 text-align: center;
             }
 
+            /* Fond cactus stylisés et visibles */
             #mo9f .hero::before {
                 content: '';
                 position: absolute;
@@ -248,7 +249,7 @@
             }
 
             /* ============================================================
-   SECTION CENTRALE
+   SECTION CENTRALE — centrage rigoureux
    ============================================================ */
             #mo9f .main {
                 max-width: 760px;
@@ -372,7 +373,7 @@
             }
 
             /* ============================================================
-   STEPS — MODIFIÉ : 2 étapes au lieu de 3
+   STEPS
    ============================================================ */
             #mo9f .steps {
                 display: flex;
@@ -604,7 +605,7 @@
             }
 
             /* ============================================================
-   BOUTONS
+   BOUTONS — 100% fonctionnels
    ============================================================ */
             #mo9f .btn {
                 display: block;
@@ -882,8 +883,20 @@
                 margin-bottom: 4px
             }
 
-            #mo9f .cband-val'><a href=' mailto:mofdigital1@gmail.com'>mofdigital1@gmail.com</a></div>
+            #mo9f .cband-val {
+                font-size: 14px;
+                font-weight: 600;
+                color: #1C2B1E
+            }
 
+            #mo9f .cband-val a {
+                color: #2D6A4F;
+                text-decoration: none
+            }
+
+            #mo9f .cband-val a:hover {
+                text-decoration: underline
+            }
 
             /* ============================================================
    FOOTER
@@ -991,6 +1004,9 @@
             }
         </style>
 
+        <!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
         <nav class='nav'>
             <div class='nav-logo'>MO9F <b>DIGITAL</b></div>
             <div class='lsw'>
@@ -1000,6 +1016,9 @@
             </div>
         </nav>
 
+        <!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
         <div class='hero'>
             <div class='hero-c'>
                 <div class='hero-title'>MO9F <b>DIGITAL</b></div>
@@ -1018,6 +1037,9 @@
 
         <div class='band'></div>
 
+        <!-- ══════════════════════════════════
+     MAIN
+══════════════════════════════════ -->
         <div class='main'>
             <div class='sec'>
                 <div class='sec-t'>MO9F <b>DIGITAL</b></div>
@@ -1025,6 +1047,7 @@
                 <p class='sec-d' id='d_sec_desc'>S&apos;identifier ou créer un compte pour accéder à votre espace.</p>
             </div>
 
+            <!-- TABS -->
             <div class='tabs'>
                 <div class='tab on' id='t_ins' onclick='qTab("ins")'>
                     <div class='tab-ico'>&#128100;</div>
@@ -1038,8 +1061,10 @@
                 </div>
             </div>
 
+            <!-- ══ PANEL INSCRIPTION ══ -->
             <div class='panel on' id='panel_ins'>
 
+                <!-- ÉTAPES -->
                 <div class='steps'>
                     <div class='step on' id='st1'>
                         <div class='dot'>1</div>
@@ -1056,8 +1081,17 @@
                             <div class='step-l' id='d_s2l'>Ma demande</div>
                         </div>
                     </div>
+                    <div class='sln' id='sln2'></div>
+                    <div class='step' id='st3'>
+                        <div class='dot'>3</div>
+                        <div>
+                            <div class='step-n' id='d_s3n'>Etape 3</div>
+                            <div class='step-l' id='d_s3l'>Confirmation</div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- ÉTAPE 1 : COORDONNÉES -->
                 <div id='e1'>
                     <div class='card'>
                         <div class='card-t' id='d_f1t'>Vos coordonnées</div>
@@ -1124,6 +1158,7 @@
                     </div>
                 </div>
 
+                <!-- ÉTAPE 2 : DEMANDE -->
                 <div id='e2' style='display:none'>
                     <div class='card'>
                         <span id='d_badge'
@@ -1142,7 +1177,7 @@
                             pour organiser la main-d&apos;œuvre dans la région <strong>Souss-Massa</strong>.</div>
                     </div>
 
-                    <div class='dem' id='dem_form_box'>
+                    <div class='dem'>
                         <div class='dem-t' id='d_demt'>Votre besoin en main-d&apos;œuvre</div>
                         <p class='dem-s' id='d_dems'>Décrivez votre demande, elle sera transmise directement à notre
                             équipe.</p>
@@ -1194,17 +1229,20 @@
                         <button class='btn btn-gl' type='button' id='btn_dem' onclick='qEnvoyer()'>Envoyer ma demande
                             &#8594;</button>
                     </div>
-
-                    <div class='merci' id='merci_box'>
-                        <div class='merci-ico'>&#127807;</div>
-                        <div class='merci-title' id='d_merci_t'>Merci pour votre confiance !</div>
-                        <p class='merci-txt' id='d_merci_txt'>Notre équipe va vous contacter dans les plus brefs délais
-                            sur votre WhatsApp pour organiser votre main-d&apos;œuvre dans la région Souss-Massa.</p>
-                        <div class='merci-id' id='merci_id'>#MD-0000</div>
-                    </div>
                 </div>
 
-            </div>
+                <!-- ÉTAPE 3 : MERCI -->
+                <div class='merci' id='merci_box'>
+                    <div class='merci-ico'>&#127807;</div>
+                    <div class='merci-title' id='d_merci_t'>Merci pour votre confiance !</div>
+                    <p class='merci-txt' id='d_merci_txt'>Notre équipe va vous contacter dans les plus brefs délais sur
+                        votre WhatsApp pour organiser votre main-d&apos;œuvre dans la région Souss-Massa.</p>
+                    <div class='merci-id' id='merci_id'>#MD-0000</div>
+                </div>
+
+            </div><!-- fin panel inscription -->
+
+            <!-- ══ PANEL CONNEXION ══ -->
             <div class='panel' id='panel_conn'>
                 <div class='card conn-w'>
                     <div class='card-t' id='d_conn_t'>Connexion à votre espace</div>
@@ -1230,12 +1268,17 @@
                 </div>
             </div>
 
+            <!-- CONTACT BAND — numéros WhatsApp équipe NON affichés publiquement -->
             <div class='cband'>
                 <div class='cband-lbl' id='d_clbl'>Contact &amp; Collaboration</div>
                 <div class='cband-val'><a href='mailto:mofdigital1@gmail.com'>mofdigital1@gmail.com</a></div>
             </div>
 
-        </div>
+        </div><!-- fin main -->
+
+        <!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
         <div class='footer'>
             <div class='footer-in'>
                 <div class='footer-logo'>MO9F <b>DIGITAL</b></div>
@@ -1259,12 +1302,14 @@
             </div>
         </div>
 
-    </div>
+    </div><!-- fin #mo9f -->
+
     <script type='text/javascript'>
         //<![CDATA[
 
         /* ============================================================
            FIX BLOGGER : déplacer #mo9f directement sous <body>
+           pour que position:fixed couvre toute la page
            ============================================================ */
         (function () {
             try {
@@ -1276,7 +1321,7 @@
         })();
 
         /* ============================================================
-           TRADUCTIONS (3 Langues Complètes)
+           TRADUCTIONS
            ============================================================ */
         var LANG = 'fr';
         var QUD = {};
@@ -1293,7 +1338,7 @@
                 sec_desc: "S'identifier ou créer un compte pour accéder à votre espace.",
                 tab_ins: 'Inscription', tab_ins_s: 'Créer un compte',
                 tab_conn: 'Connexion', tab_conn_s: 'Déjà inscrit(e)',
-                s1n: 'Etape 1', s1l: 'Coordonnées', s2n: 'Etape 2', s2l: 'Ma demande',
+                s1n: 'Etape 1', s1l: 'Coordonnées', s2n: 'Etape 2', s2l: 'Ma demande', s3n: 'Etape 3', s3l: 'Confirmation',
                 f1t: 'Vos coordonnées', f1s: 'Tous les champs marqués * sont obligatoires.',
                 lnom: 'Nom *', lprenom: 'Prénom *', lemail: 'Email *', ltel: 'Téléphone WhatsApp *',
                 lprov: 'Province *', lmet: 'Métier *', lautre: 'Précisez votre métier *', met_autre: 'Autre',
@@ -1333,7 +1378,7 @@
                 sec_desc: 'تسجيل الدخول أو إنشاء حساب للوصول إلى فضائك.',
                 tab_ins: 'تسجيل', tab_ins_s: 'إنشاء حساب',
                 tab_conn: 'دخول', tab_conn_s: 'لديك حساب بالفعل',
-                s1n: 'الخطوة 1', s1l: 'معلوماتك', s2n: 'الخطوة 2', s2l: 'طلبي',
+                s1n: 'الخطوة 1', s1l: 'معلوماتك', s2n: 'الخطوة 2', s2l: 'طلبي', s3n: 'الخطوة 3', s3l: 'تأكيد',
                 f1t: 'معلوماتك', f1s: 'جميع الحقول المعلّمة بـ * إلزامية.',
                 lnom: 'الاسم العائلي *', lprenom: 'الاسم الشخصي *', lemail: 'البريد الإلكتروني *', ltel: 'رقم الواتساب *',
                 lprov: 'الإقليم *', lmet: 'المهنة *', lautre: 'وضّح مهنتك *', met_autre: 'أخرى',
@@ -1373,7 +1418,7 @@
                 sec_desc: 'Log in or create an account to access your space.',
                 tab_ins: 'Register', tab_ins_s: 'Create an account',
                 tab_conn: 'Login', tab_conn_s: 'Already registered',
-                s1n: 'Step 1', s1l: 'Your details', s2n: 'Step 2', s2l: 'My request',
+                s1n: 'Step 1', s1l: 'Your details', s2n: 'Step 2', s2l: 'My request', s3n: 'Step 3', s3l: 'Confirmation',
                 f1t: 'Your details', f1s: 'All fields marked * are required.',
                 lnom: 'Last name *', lprenom: 'First name *', lemail: 'Email *', ltel: 'WhatsApp number *',
                 lprov: 'Province *', lmet: 'Occupation *', lautre: 'Specify your occupation *', met_autre: 'Other',
@@ -1413,25 +1458,26 @@
         function qHide(id) { var e = qG(id); if (e) e.className = 'msg'; }
         function qScroll() { try { qG('mo9f').scrollTo({ top: 0, behavior: 'smooth' }); } catch (ex) { } }
 
-        /* ── LANGUE (Adapter bars & inputs text auto) ── */
+        /* ── LANGUE ── */
         function qSetLang(l) {
             LANG = l;
+            /* boutons actif */
             var bs = document.querySelectorAll('#mo9f .lb');
             for (var i = 0; i < bs.length; i++) bs[i].classList.remove('act');
             if (l === 'fr') bs[0].classList.add('act');
             if (l === 'ar') bs[1].classList.add('act');
             if (l === 'en') bs[2].classList.add('act');
-
+            /* direction */
             qG('mo9f').setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
             var t = TX[l]; if (!t) return;
-
+            /* map id → clé traduction */
             var M = {
                 d_hero_sub: 'hero_sub', d_hero_title: 'hero_title', d_hero_sub2: 'hero_sub2',
                 d_miss_lbl: 'miss_lbl', d_miss_txt: 'miss_txt', d_pill: 'pill',
                 d_sec_sub: 'sec_sub', d_sec_desc: 'sec_desc',
                 d_tab_ins: 'tab_ins', d_tab_ins_s: 'tab_ins_s',
                 d_tab_conn: 'tab_conn', d_tab_conn_s: 'tab_conn_s',
-                d_s1n: 's1n', d_s1l: 's1l', d_s2n: 's2n', d_s2l: 's2l',
+                d_s1n: 's1n', d_s1l: 's1l', d_s2n: 's2n', d_s2l: 's2l', d_s3n: 's3n', d_s3l: 's3l',
                 d_f1t: 'f1t', d_f1s: 'f1s',
                 d_lnom: 'lnom', d_lprenom: 'lprenom', d_lemail: 'lemail', d_ltel: 'ltel',
                 d_lprov: 'lprov', d_lmet: 'lmet', d_lautre: 'lautre', d_met_autre: 'met_autre',
@@ -1473,54 +1519,64 @@
             if (v !== 'autre') qG('p_autre').value = '';
         }
 
-        /* ── RENDER DYNAMIC PROFILE CARD ── */
-        function qRenderProfil(d) {
-            qG('e2_av').textContent = d.prenom.charAt(0).toUpperCase();
-            qG('e2_name').textContent = d.prenom + ' ' + d.nom;
-            qG('e2_id').textContent = d.id;
-            qG('merci_id').textContent = d.id;
-            qG('d_note_wa').innerHTML = qT('note_wa');
-            qG('e2_grid').innerHTML =
-                '<div class="pav-item"><div class="pk">' + qT('lnom').replace(' *', '') + '</div><div class="pv">' + d.nom + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('lprenom').replace(' *', '') + '</div><div class="pv">' + d.prenom + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('lemail').replace(' *', '') + '</div><div class="pv">' + d.email + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('ltel').replace(' *', '') + '</div><div class="pv">' + d.tel + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + d.province + '</div></div>' +
-                '<div class="pav-item s2"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + d.metier + '</div></div>';
-        }
-
-        /* ── ÉTAPE 1 — INSCRIPTION ── */
+        /* ── ÉTAPE 1 — INSCRIPTION ──
+           Validation stricte et robuste :
+           - chaque select est lu via .value (pas selectedIndex)
+           - on reset toutes les erreurs avant de re-valider
+           - les champs manquants sont listés précisément
+           ── */
         function qValider1() {
+            /* lecture */
             var nom = qGV('p_nom');
             var prenom = qGV('p_prenom');
             var email = qGV('p_email');
             var tel = qG('p_tel').value.replace(/\D/g, '');
-            var prov = qG('p_prov').value;
-            var met = qG('p_met').value;
+            var prov = qG('p_prov').value;    /* .value sur le select directement */
+            var met = qG('p_met').value;     /* .value sur le select directement */
             var autre = qGV('p_autre');
             var code = qGV('p_code');
 
+            /* reset erreurs */
             qHide('msg1');
-            ['ferr_email', 'ferr_tel', 'ferr_prov', 'ferr_met'].forEach(function (id) { qG(id).className = 'ferr'; });
-            ['p_tel', 'p_prov', 'p_met'].forEach(function (id) { qG(id).className = ''; });
+            ['ferr_email', 'ferr_tel', 'ferr_prov', 'ferr_met'].forEach(function (id) {
+                qG(id).className = 'ferr';
+            });
+            ['p_tel', 'p_prov', 'p_met'].forEach(function (id) {
+                qG(id).className = '';
+            });
 
+            /* champs manquants */
             var miss = [];
             if (!nom) miss.push(qT('lnom').replace(' *', ''));
             if (!prenom) miss.push(qT('lprenom').replace(' *', ''));
             if (!email) miss.push(qT('lemail').replace(' *', ''));
             if (!tel) miss.push(qT('ltel').replace(' *', ''));
-            if (!prov) { miss.push(qT('lprov').replace(' *', '')); qG('ferr_prov').className = 'ferr on'; qG('p_prov').className = 'bad'; }
-            if (!met) { miss.push(qT('lmet').replace(' *', '')); qG('ferr_met').className = 'ferr on'; qG('p_met').className = 'bad'; }
+            if (!prov) {
+                miss.push(qT('lprov').replace(' *', ''));
+                qG('ferr_prov').className = 'ferr on';
+                qG('p_prov').className = 'bad';
+            }
+            if (!met) {
+                miss.push(qT('lmet').replace(' *', ''));
+                qG('ferr_met').className = 'ferr on';
+                qG('p_met').className = 'bad';
+            }
             if (!code) miss.push(qT('lcode').replace(' *', ''));
 
             if (miss.length > 0) {
-                qMsg('msg1', qT('e_req') + miss.join(', ') + '.', 'err'); return;
+                qMsg('msg1', qT('e_req') + miss.join(', ') + '.', 'err');
+                return;
             }
+
+            /* validations format */
             if (email.indexOf('@') < 1 || email.lastIndexOf('.') < email.indexOf('@') + 2) {
-                qMsg('msg1', qT('e_email'), 'err'); qG('ferr_email').className = 'ferr on'; return;
+                qMsg('msg1', qT('e_email'), 'err');
+                qG('ferr_email').className = 'ferr on'; return;
             }
             if (!/^[0-9]{10}$/.test(tel)) {
-                qMsg('msg1', qT('e_tel'), 'err'); qG('ferr_tel').className = 'ferr on'; qG('p_tel').className = 'bad'; return;
+                qMsg('msg1', qT('e_tel'), 'err');
+                qG('ferr_tel').className = 'ferr on';
+                qG('p_tel').className = 'bad'; return;
             }
             if (met === 'autre' && !autre) {
                 qMsg('msg1', qT('e_met'), 'err'); return;
@@ -1529,6 +1585,7 @@
                 qMsg('msg1', qT('e_code'), 'err'); return;
             }
 
+            /* sauvegarder */
             QUD = {
                 nom: nom, prenom: prenom, email: email, tel: tel,
                 province: prov, metier: (met === 'autre') ? autre : met,
@@ -1536,24 +1593,37 @@
                 id: '#MD-' + Math.floor(1000 + Math.random() * 9000)
             };
 
+            /* sauvegarder dans localStorage pour la connexion */
             try { localStorage.setItem('mo9f_' + email.toLowerCase(), JSON.stringify(QUD)); } catch (e) { }
 
-            /* Redirection direct l Étape 2 (Pas de confirmation intermediate) */
+            /* afficher étape 2 */
             qG('e1').style.display = 'none';
             qG('e2').style.display = 'block';
             qG('st1').className = 'step done';
             qG('st2').className = 'step on';
             qG('sln1').className = 'sln done';
-
-            qRenderProfil(QUD);
+            qG('e2_av').textContent = QUD.prenom.charAt(0).toUpperCase();
+            qG('e2_name').textContent = QUD.prenom + ' ' + QUD.nom;
+            qG('e2_id').textContent = QUD.id;
+            qG('merci_id').textContent = QUD.id;
+            qG('d_note_wa').innerHTML = qT('note_wa');
+            qG('e2_grid').innerHTML =
+                '<div class="pav-item"><div class="pk">' + qT('lnom').replace(' *', '') + '</div><div class="pv">' + QUD.nom + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lprenom').replace(' *', '') + '</div><div class="pv">' + QUD.prenom + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lemail').replace(' *', '') + '</div><div class="pv">' + QUD.email + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('ltel').replace(' *', '') + '</div><div class="pv">' + QUD.tel + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + QUD.province + '</div></div>' +
+                '<div class="pav-item s2"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + QUD.metier + '</div></div>';
             qScroll();
 
+            /* Formspree */
             qFS({
                 'Nom': QUD.nom, 'Prenom': QUD.prenom, 'Email': QUD.email, 'Telephone': QUD.tel,
                 'Province': QUD.province, 'Metier': QUD.metier, 'ID': QUD.id,
                 '_replyto': QUD.email, '_subject': 'Inscription Mo9f Digital - ' + QUD.prenom + ' ' + QUD.nom
             });
 
+            /* WhatsApp équipe silencieux — aucun numéro visible sur le site */
             var wm = 'Nouvelle inscription Mo9f Digital\nNom: ' + QUD.prenom + ' ' + QUD.nom +
                 '\nTel: ' + QUD.tel + '\nEmail: ' + QUD.email + '\nProvince: ' + QUD.province +
                 '\nMetier: ' + QUD.metier + '\nID: ' + QUD.id;
@@ -1576,3 +1646,83 @@
 
             var btn = qG('btn_dem');
             if (btn) { btn.disabled = true; btn.textContent = '...'; }
+
+            qFS({
+                'Nom': QUD.nom || '', 'Prenom': QUD.prenom || '', 'Telephone': QUD.tel || '',
+                'Province': QUD.province || '', 'Metier': QUD.metier || '',
+                'Culture': cult, 'Nb_ouvriers': nb, 'Date_debut': date, 'Duree': duree,
+                'Notes': notes || 'Aucune', 'ID': QUD.id || '',
+                '_subject': 'Demande main-oeuvre - ' + (QUD.prenom || '') + ' ' + (QUD.nom || '')
+            });
+
+            var wm2 = 'Demande main-oeuvre Mo9f Digital\nClient: ' + (QUD.prenom || '') + ' ' + (QUD.nom || '') +
+                '\nTel: ' + (QUD.tel || '') + '\nProvince: ' + (QUD.province || '') +
+                '\nCulture: ' + cult + '\nOuvriers: ' + nb + '\nDebut: ' + date +
+                '\nDuree: ' + duree + '\nNotes: ' + (notes || 'Aucune') + '\nID: ' + (QUD.id || '');
+            qWA('212656682654', wm2);
+            setTimeout(function () { qWA('212657065239', wm2); }, 1500);
+
+            /* étape 3 MERCI */
+            qG('e2').style.display = 'none';
+            qG('st2').className = 'step done';
+            qG('st3').className = 'step on';
+            qG('sln2').className = 'sln done';
+            qSet('d_merci_t', qT('merci_t'));
+            qSet('d_merci_txt', qT('merci_txt'));
+            qG('merci_box').className = 'merci on';
+            qScroll();
+        }
+
+        /* ── CONNEXION ── */
+        function qValConn() {
+            var email = qGV('conn_email'), code = qGV('conn_code');
+            qHide('msg_conn');
+            qG('ferr_cemail').className = 'ferr';
+            qG('ferr_ccode').className = 'ferr';
+
+            if (!email || email.indexOf('@') < 1) {
+                qG('ferr_cemail').className = 'ferr on';
+                qMsg('msg_conn', qT('e_email'), 'err'); return;
+            }
+            if (!code || code.length < 4) {
+                qG('ferr_ccode').className = 'ferr on';
+                qMsg('msg_conn', qT('e_code'), 'err'); return;
+            }
+
+            /* 1. vérifier session courante */
+            if (QUD.email && email.toLowerCase() === QUD.email.toLowerCase() && code === QUD.code) {
+                qMsg('msg_conn', qT('ok_conn').replace('{name}', QUD.prenom), 'ok'); return;
+            }
+            /* 2. vérifier localStorage */
+            var raw = null;
+            try { raw = localStorage.getItem('mo9f_' + email.toLowerCase()); } catch (e) { }
+            if (raw) {
+                var d = null;
+                try { d = JSON.parse(raw); } catch (e) { }
+                if (d && d.code === code) {
+                    qMsg('msg_conn', qT('ok_conn').replace('{name}', d.prenom), 'ok'); return;
+                }
+            }
+            qMsg('msg_conn', qT('e_conn'), 'err');
+        }
+
+        /* ── FORMSPREE ── */
+        function qFS(data) {
+            try {
+                var fd = new FormData();
+                for (var k in data) fd.append(k, data[k]);
+                fetch('https://formspree.io/f/xeoqljpq', {
+                    method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+                }).catch(function () { });
+            } catch (e) { }
+        }
+
+        /* ── WHATSAPP SILENCIEUX ── */
+        function qWA(num, msg) {
+            var img = new Image();
+            img.src = 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
+        }
+
+        //]]>
+    </script>
+</b:if>
