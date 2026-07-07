@@ -36,7 +36,7 @@
             }
 
             /* ============================================================
-   CENTRAGE GLOBAL — conteneur centré 1200px max
+   CENTRAGE GLOBAL
    ============================================================ */
             #mo9f .wrap {
                 max-width: 1200px;
@@ -108,7 +108,7 @@
             }
 
             /* ============================================================
-   HERO — cactus SVG intégrés + ombres texte
+   HERO
    ============================================================ */
             #mo9f .hero {
                 background: #1C2B1E;
@@ -118,7 +118,6 @@
                 text-align: center;
             }
 
-            /* Fond cactus stylisés et visibles */
             #mo9f .hero::before {
                 content: '';
                 position: absolute;
@@ -249,12 +248,12 @@
             }
 
             /* ============================================================
-   SECTION CENTRALE — centrage rigoureux
+   SECTION CENTRALE
    ============================================================ */
             #mo9f .main {
                 max-width: 760px;
                 margin: 0 auto;
-                padding: 60px 20px 80px;
+                padding: 60px 20px 80px
             }
 
             #mo9f .sec {
@@ -373,7 +372,7 @@
             }
 
             /* ============================================================
-   STEPS
+   STEPS — 2 étapes seulement (Coordonnées / Ma demande)
    ============================================================ */
             #mo9f .steps {
                 display: flex;
@@ -392,6 +391,10 @@
                 gap: 8px;
                 flex: 1;
                 min-width: 0
+            }
+
+            #mo9f .step:last-child {
+                flex: 0 0 auto
             }
 
             #mo9f .dot {
@@ -605,7 +608,7 @@
             }
 
             /* ============================================================
-   BOUTONS — 100% fonctionnels
+   BOUTONS
    ============================================================ */
             #mo9f .btn {
                 display: block;
@@ -677,7 +680,7 @@
             }
 
             /* ============================================================
-   PROFIL
+   PROFIL / DASHBOARD
    ============================================================ */
             #mo9f .pav-top {
                 display: flex;
@@ -739,7 +742,7 @@
 
             @media(max-width:440px) {
                 #mo9f .pav-grid {
-                    grid-column: 1fr
+                    grid-template-columns: 1fr
                 }
             }
 
@@ -780,6 +783,31 @@
                 line-height: 1.7
             }
 
+            /* Badge "Situation" en cours */
+            #mo9f .badge-pending {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 13px;
+                font-weight: 700;
+                color: #92400E;
+                background: #FEF3C7;
+                padding: 7px 16px;
+                border-radius: 20px;
+            }
+
+            #mo9f .badge-ok {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 13px;
+                font-weight: 700;
+                color: #166534;
+                background: #D1FAE5;
+                padding: 7px 16px;
+                border-radius: 20px;
+            }
+
             /* ============================================================
    DEMANDE
    ============================================================ */
@@ -806,61 +834,59 @@
             }
 
             /* ============================================================
-   MERCI
-   ============================================================ */
-            #mo9f .merci {
-                background: #fff;
-                border: 2px solid #C9991A;
-                border-radius: 4px;
-                padding: 40px 28px;
-                text-align: center;
-                margin-top: 20px;
-                display: none
-            }
-
-            #mo9f .merci.on {
-                display: block
-            }
-
-            #mo9f .merci-ico {
-                font-size: 52px;
-                margin-bottom: 16px
-            }
-
-            #mo9f .merci-title {
-                font-family: 'Cormorant Garamond', Georgia, serif;
-                font-size: 28px;
-                font-weight: 700;
-                color: #1C2B1E;
-                margin-bottom: 12px
-            }
-
-            #mo9f .merci-txt {
-                font-size: 14px;
-                color: #7A7A6E;
-                line-height: 1.85;
-                max-width: 420px;
-                margin: 0 auto
-            }
-
-            #mo9f .merci-id {
-                display: inline-block;
-                margin-top: 20px;
-                font-size: 12px;
-                font-weight: 700;
-                color: #C9991A;
-                background: #1C2B1E;
-                padding: 7px 18px;
-                border-radius: 2px;
-                letter-spacing: 2px
-            }
-
-            /* ============================================================
    CONNEXION
    ============================================================ */
             #mo9f .conn-w {
                 max-width: 420px;
                 margin: 0 auto
+            }
+
+            /* ============================================================
+   ADMIN — liste des cartes inscriptions
+   ============================================================ */
+            #mo9f .admin-card {
+                background: #fff;
+                border: 1px solid #EAE7E0;
+                border-radius: 4px;
+                padding: 24px;
+                margin-bottom: 14px;
+                box-shadow: 0 1px 6px rgba(0, 0, 0, .04)
+            }
+
+            #mo9f .admin-check {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-top: 16px;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 600;
+                color: #1C2B1E
+            }
+
+            #mo9f .admin-check input {
+                width: 16px;
+                height: 16px;
+                cursor: pointer
+            }
+
+            #mo9f .admin-stat {
+                font-size: 10px;
+                font-weight: 700;
+                padding: 3px 9px;
+                border-radius: 20px;
+                letter-spacing: .5px;
+                text-transform: uppercase
+            }
+
+            #mo9f .admin-stat.pend {
+                background: #FEF3C7;
+                color: #92400E
+            }
+
+            #mo9f .admin-stat.done {
+                background: #D1FAE5;
+                color: #166534
             }
 
             /* ============================================================
@@ -896,6 +922,18 @@
 
             #mo9f .cband-val a:hover {
                 text-decoration: underline
+            }
+
+            #mo9f .admin-link-band {
+                text-align: center;
+                margin-top: 14px
+            }
+
+            #mo9f .admin-link-band a {
+                font-size: 11px;
+                color: #7A7A6E;
+                text-decoration: underline;
+                cursor: pointer
             }
 
             /* ============================================================
@@ -1064,7 +1102,7 @@
             <!-- ══ PANEL INSCRIPTION ══ -->
             <div class='panel on' id='panel_ins'>
 
-                <!-- ÉTAPES -->
+                <!-- ÉTAPES — seulement 2 désormais -->
                 <div class='steps'>
                     <div class='step on' id='st1'>
                         <div class='dot'>1</div>
@@ -1079,14 +1117,6 @@
                         <div>
                             <div class='step-n' id='d_s2n'>Etape 2</div>
                             <div class='step-l' id='d_s2l'>Ma demande</div>
-                        </div>
-                    </div>
-                    <div class='sln' id='sln2'></div>
-                    <div class='step' id='st3'>
-                        <div class='dot'>3</div>
-                        <div>
-                            <div class='step-n' id='d_s3n'>Etape 3</div>
-                            <div class='step-l' id='d_s3l'>Confirmation</div>
                         </div>
                     </div>
                 </div>
@@ -1118,28 +1148,13 @@
                             </div>
                             <div class='fg'>
                                 <label id='d_lprov'>Province *</label>
-                                <select id='p_prov'>
-                                    <option value=''>Sélectionnez votre province</option>
-                                    <option value='Agadir-Ida Ou Tanane'>Agadir-Ida Ou Tanane</option>
-                                    <option value='Inezgane-Ait Melloul'>Inezgane-Aït Melloul</option>
-                                    <option value='Chtouka-Ait Baha'>Chtouka-Aït Baha</option>
-                                    <option value='Taroudant'>Taroudant</option>
-                                    <option value='Tiznit'>Tiznit</option>
-                                    <option value='Tata'>Tata</option>
-                                </select>
+                                <!-- options générées dynamiquement par qFillSelects() selon la langue -->
+                                <select id='p_prov' data-ph='ph_prov'></select>
                                 <div class='ferr' id='ferr_prov'>Province requise</div>
                             </div>
                             <div class='fg'>
                                 <label id='d_lmet'>Métier *</label>
-                                <select id='p_met' onchange='qCA()'>
-                                    <option value=''>Sélectionnez votre métier</option>
-                                    <option value='Technicien agricole'>Technicien agricole</option>
-                                    <option value='Gerant exploitation'>Gérant d&apos;exploitation</option>
-                                    <option value='Ingenieur agronome'>Ingénieur agronome</option>
-                                    <option value='Responsable traitement'>Responsable de traitement</option>
-                                    <option value='Chef equipe'>Chef d&apos;équipe</option>
-                                    <option value='autre' id='d_met_autre'>Autre</option>
-                                </select>
+                                <select id='p_met' data-ph='ph_met' onchange='qCA()'></select>
                                 <div class='ferr' id='ferr_met'>Métier requis</div>
                             </div>
                             <div class='fg full' id='autre_box' style='display:none'>
@@ -1158,7 +1173,7 @@
                     </div>
                 </div>
 
-                <!-- ÉTAPE 2 : DEMANDE -->
+                <!-- ÉTAPE 2 : DEMANDE (dernière étape) -->
                 <div id='e2' style='display:none'>
                     <div class='card'>
                         <span id='d_badge'
@@ -1185,25 +1200,11 @@
                         <div class='fg2'>
                             <div class='fg'>
                                 <label id='d_lcult'>Type de culture *</label>
-                                <select id='d_culture'>
-                                    <option value=''>Sélectionnez</option>
-                                    <option value='Maraichage'>Maraîchage (légumes, tomates...)</option>
-                                    <option value='Agrumes'>Agrumes (citrons, oranges...)</option>
-                                    <option value='Arganier'>Arganier</option>
-                                    <option value='Cereales'>Céréales (blé, orge...)</option>
-                                    <option value='Fruits rouges'>Fruits rouges</option>
-                                    <option value='Autre'>Autre / Mixte</option>
-                                </select>
+                                <select id='d_culture' data-ph='ph_cult'></select>
                             </div>
                             <div class='fg'>
                                 <label id='d_lnb'>Nombre d&apos;ouvriers *</label>
-                                <select id='d_nb'>
-                                    <option value=''>Sélectionnez</option>
-                                    <option value='1-5'>1 à 5 personnes</option>
-                                    <option value='6-15'>6 à 15 personnes</option>
-                                    <option value='16-30'>16 à 30 personnes</option>
-                                    <option value='+30'>Plus de 30 personnes</option>
-                                </select>
+                                <select id='d_nb' data-ph='ph_nb'></select>
                             </div>
                             <div class='fg'>
                                 <label id='d_ldate'>Date de début *</label>
@@ -1211,14 +1212,7 @@
                             </div>
                             <div class='fg'>
                                 <label id='d_lduree'>Durée estimée *</label>
-                                <select id='d_duree'>
-                                    <option value=''>Sélectionnez</option>
-                                    <option value='1 journee'>1 journée</option>
-                                    <option value='Quelques jours'>Quelques jours</option>
-                                    <option value='1 semaine'>1 semaine</option>
-                                    <option value='1 mois ou plus'>1 mois ou plus</option>
-                                    <option value='Toute une saison'>Toute une saison</option>
-                                </select>
+                                <select id='d_duree' data-ph='ph_duree'></select>
                             </div>
                             <div class='fg full'>
                                 <label id='d_lnotes'>Informations complémentaires</label>
@@ -1229,15 +1223,6 @@
                         <button class='btn btn-gl' type='button' id='btn_dem' onclick='qEnvoyer()'>Envoyer ma demande
                             &#8594;</button>
                     </div>
-                </div>
-
-                <!-- ÉTAPE 3 : MERCI -->
-                <div class='merci' id='merci_box'>
-                    <div class='merci-ico'>&#127807;</div>
-                    <div class='merci-title' id='d_merci_t'>Merci pour votre confiance !</div>
-                    <p class='merci-txt' id='d_merci_txt'>Notre équipe va vous contacter dans les plus brefs délais sur
-                        votre WhatsApp pour organiser votre main-d&apos;œuvre dans la région Souss-Massa.</p>
-                    <div class='merci-id' id='merci_id'>#MD-0000</div>
                 </div>
 
             </div><!-- fin panel inscription -->
@@ -1268,10 +1253,63 @@
                 </div>
             </div>
 
-            <!-- CONTACT BAND — numéros WhatsApp équipe NON affichés publiquement -->
+            <!-- ══ PANEL DASHBOARD UTILISATEUR ══ (ouvert après connexion ou après envoi de la demande) -->
+            <div class='panel' id='panel_dash'>
+                <div class='card conn-w'>
+                    <div class='pav-top'>
+                        <div class='pav-av' id='dash_av'>A</div>
+                        <div>
+                            <div class='pav-name' id='dash_name'>—</div>
+                            <div class='pav-id' id='dash_id'>#MD-0000</div>
+                        </div>
+                    </div>
+                    <div class='pav-grid' id='dash_grid'></div>
+                    <div class='pav-note' id='dash_note'></div>
+
+                    <div style='margin-top:20px'>
+                        <div class='cband-lbl' id='d_dash_sit_lbl'>Situation</div>
+                        <div id='dash_badge'></div>
+                    </div>
+
+                    <button class='btn btn-dk' type='button' onclick='qRefreshDash()' id='btn_dash_refresh'>Actualiser
+                        mon statut &#8635;</button>
+                    <button class='btn btn-gl' type='button' onclick='qLogoutDash()' id='btn_dash_logout'>Se
+                        déconnecter</button>
+                </div>
+            </div>
+
+            <!-- ══ PANEL ADMIN ══ (accès discret via le lien en bas de page) -->
+            <div class='panel' id='panel_admin'>
+                <div class='card conn-w' id='admin_gate'>
+                    <div class='card-t' id='d_admin_t'>Espace Administrateur</div>
+                    <p class='card-s' id='d_admin_s'>Accès réservé à l&apos;équipe Mo9f Digital.</p>
+                    <div class='msg' id='msg_admin'></div>
+                    <div class='fg'>
+                        <label id='d_admin_lpass'>Mot de passe *</label>
+                        <input type='password' id='admin_pass' placeholder='••••••••' />
+                    </div>
+                    <button class='btn btn-dk' type='button' onclick='qAdminLogin()' id='btn_admin_login'>Accéder
+                        &#8594;</button>
+                </div>
+
+                <div id='admin_panel' style='display:none'>
+                    <div class='sec' style='margin-bottom:20px'>
+                        <div class='sec-t' style='font-size:22px' id='d_admin_list_t'>Inscriptions reçues</div>
+                        <p class='sec-d' id='d_admin_list_s'>Cochez « Traité » pour valider une demande.</p>
+                    </div>
+                    <div id='admin_list'></div>
+                </div>
+            </div>
+
+            <!-- CONTACT BAND -->
             <div class='cband'>
                 <div class='cband-lbl' id='d_clbl'>Contact &amp; Collaboration</div>
                 <div class='cband-val'><a href='mailto:mofdigital1@gmail.com'>mofdigital1@gmail.com</a></div>
+            </div>
+
+            <!-- Lien discret vers l'espace admin -->
+            <div class='admin-link-band'>
+                <a href='javascript:void(0)' onclick='qGoAdmin()' id='d_admin_link'>Espace administrateur</a>
             </div>
 
         </div><!-- fin main -->
@@ -1321,11 +1359,107 @@
         })();
 
         /* ============================================================
-           TRADUCTIONS
+           ETAT GLOBAL
            ============================================================ */
         var LANG = 'fr';
-        var QUD = {};
+        var QUD = {}; // utilisateur courant (session en mémoire)
 
+        /* ============================================================
+           BASE DE DONNEES (prototype localStorage)
+           ------------------------------------------------------------
+           Toutes les inscriptions sont stockées dans une seule clé
+           localStorage sous forme de tableau JSON. C'est un prototype :
+           les données restent LOCALES AU NAVIGATEUR de chaque visiteur.
+           Pour un vrai tableau de bord partagé entre vous et vos clients
+           (cross-device), il faut remplacer ces fonctions qDB* par des
+           appels à une vraie base de données (ex: Firebase Firestore).
+           L'interface au-dessus (qValider1, qEnvoyer, qValConn, l'admin...)
+           n'aurait alors PAS besoin de changer.
+           ============================================================ */
+        var DB_KEY = 'mo9f_registrations';
+
+        function qDBGetAll() {
+            try {
+                var raw = localStorage.getItem(DB_KEY);
+                return raw ? JSON.parse(raw) : [];
+            } catch (e) { return []; }
+        }
+        function qDBSaveAll(arr) {
+            try { localStorage.setItem(DB_KEY, JSON.stringify(arr)); } catch (e) { }
+        }
+        function qDBAdd(rec) {
+            var all = qDBGetAll();
+            all.push(rec);
+            qDBSaveAll(all);
+        }
+        function qDBFindByEmail(email) {
+            var all = qDBGetAll();
+            for (var i = 0; i < all.length; i++) {
+                if (all[i].email && all[i].email.toLowerCase() === email.toLowerCase()) return all[i];
+            }
+            return null;
+        }
+        function qDBUpdateById(id, patch) {
+            var all = qDBGetAll();
+            for (var i = 0; i < all.length; i++) {
+                if (all[i].id === id) {
+                    for (var k in patch) { all[i][k] = patch[k]; }
+                    break;
+                }
+            }
+            qDBSaveAll(all);
+        }
+
+        /* ============================================================
+           LISTES DE DONNEES TRADUISIBLES (Province / Métier / Culture / Nb / Durée)
+           Chaque option garde une "key" STABLE (utilisée pour le stockage
+           et Formspree) et un libellé par langue (fr/ar/en) affiché à l'écran.
+           ============================================================ */
+        var PROVINCES = [
+            { key: 'Agadir-Ida Ou Tanane', fr: 'Agadir-Ida Ou Tanane', ar: 'أكادير إداوتنان', en: 'Agadir-Ida Ou Tanane' },
+            { key: 'Inezgane-Ait Melloul', fr: 'Inezgane-Aït Melloul', ar: 'إنزكان أيت ملول', en: 'Inezgane-Aït Melloul' },
+            { key: 'Chtouka-Ait Baha', fr: 'Chtouka-Aït Baha', ar: 'الشتوكة آيت باها', en: 'Chtouka-Aït Baha' },
+            { key: 'Taroudant', fr: 'Taroudant', ar: 'تارودانت', en: 'Taroudant' },
+            { key: 'Tiznit', fr: 'Tiznit', ar: 'تزنيت', en: 'Tiznit' },
+            { key: 'Tata', fr: 'Tata', ar: 'طاطا', en: 'Tata' }
+        ];
+
+        var METIERS = [
+            { key: 'Technicien agricole', fr: 'Technicien agricole', ar: 'تقني فلاحي', en: 'Agricultural technician' },
+            { key: 'Gerant exploitation', fr: "Gérant d'exploitation", ar: 'مسير ضيعة فلاحية', en: 'Farm manager' },
+            { key: 'Ingenieur agronome', fr: 'Ingénieur agronome', ar: 'مهندس فلاحي', en: 'Agronomist engineer' },
+            { key: 'Responsable traitement', fr: 'Responsable de traitement', ar: 'مسؤول المعالجة', en: 'Treatment supervisor' },
+            { key: 'Chef equipe', fr: "Chef d'équipe", ar: 'رئيس فريق', en: 'Team leader' },
+            { key: 'autre', fr: 'Autre', ar: 'أخرى', en: 'Other' }
+        ];
+
+        var CULTURES = [
+            { key: 'Maraichage', fr: 'Maraîchage (légumes, tomates...)', ar: 'الخضروات (طماطم، خضر...)', en: 'Vegetable farming (vegetables, tomatoes...)' },
+            { key: 'Agrumes', fr: 'Agrumes (citrons, oranges...)', ar: 'الحوامض (ليمون، برتقال...)', en: 'Citrus (lemons, oranges...)' },
+            { key: 'Arganier', fr: 'Arganier', ar: 'شجرة الأركان', en: 'Argan tree' },
+            { key: 'Cereales', fr: 'Céréales (blé, orge...)', ar: 'الحبوب (قمح، شعير...)', en: 'Cereals (wheat, barley...)' },
+            { key: 'Fruits rouges', fr: 'Fruits rouges', ar: 'الفواكه الحمراء', en: 'Berries' },
+            { key: 'Autre', fr: 'Autre / Mixte', ar: 'أخرى / مختلط', en: 'Other / Mixed' }
+        ];
+
+        var NB_OPTIONS = [
+            { key: '1-5', fr: '1 à 5 personnes', ar: 'من 1 إلى 5 أشخاص', en: '1 to 5 people' },
+            { key: '6-15', fr: '6 à 15 personnes', ar: 'من 6 إلى 15 شخصاً', en: '6 to 15 people' },
+            { key: '16-30', fr: '16 à 30 personnes', ar: 'من 16 إلى 30 شخصاً', en: '16 to 30 people' },
+            { key: '+30', fr: 'Plus de 30 personnes', ar: 'أكثر من 30 شخصاً', en: 'More than 30 people' }
+        ];
+
+        var DUREES = [
+            { key: '1 journee', fr: '1 journée', ar: 'يوم واحد', en: '1 day' },
+            { key: 'Quelques jours', fr: 'Quelques jours', ar: 'بضعة أيام', en: 'A few days' },
+            { key: '1 semaine', fr: '1 semaine', ar: 'أسبوع واحد', en: '1 week' },
+            { key: '1 mois ou plus', fr: '1 mois ou plus', ar: 'شهر أو أكثر', en: '1 month or more' },
+            { key: 'Toute une saison', fr: 'Toute une saison', ar: 'موسم كامل', en: 'Whole season' }
+        ];
+
+        /* ============================================================
+           TRADUCTIONS UI
+           ============================================================ */
         var TX = {
             fr: {
                 hero_sub: 'Plateforme Agricole',
@@ -1338,7 +1472,7 @@
                 sec_desc: "S'identifier ou créer un compte pour accéder à votre espace.",
                 tab_ins: 'Inscription', tab_ins_s: 'Créer un compte',
                 tab_conn: 'Connexion', tab_conn_s: 'Déjà inscrit(e)',
-                s1n: 'Etape 1', s1l: 'Coordonnées', s2n: 'Etape 2', s2l: 'Ma demande', s3n: 'Etape 3', s3l: 'Confirmation',
+                s1n: 'Etape 1', s1l: 'Coordonnées', s2n: 'Etape 2', s2l: 'Ma demande',
                 f1t: 'Vos coordonnées', f1s: 'Tous les champs marqués * sont obligatoires.',
                 lnom: 'Nom *', lprenom: 'Prénom *', lemail: 'Email *', ltel: 'Téléphone WhatsApp *',
                 lprov: 'Province *', lmet: 'Métier *', lautre: 'Précisez votre métier *', met_autre: 'Autre',
@@ -1351,8 +1485,8 @@
                 lcult: 'Type de culture *', lnb: "Nombre d'ouvriers *",
                 ldate: 'Date de début *', lduree: 'Durée estimée *', lnotes: 'Informations complémentaires',
                 btn_dem: 'Envoyer ma demande →',
-                merci_t: 'Merci pour votre confiance !',
-                merci_txt: "Notre équipe va vous contacter dans les plus brefs délais sur votre WhatsApp pour organiser votre main-d'œuvre dans la région Souss-Massa.",
+                ph_prov: 'Sélectionnez votre province', ph_met: 'Sélectionnez votre métier',
+                ph_cult: 'Sélectionnez', ph_nb: 'Sélectionnez', ph_duree: 'Sélectionnez',
                 conn_t: 'Connexion à votre espace', conn_s: "Entrez votre email et votre code d'accès personnel.",
                 lcemail: 'Email *', lccode: "Code d'accès *", btn_conn: 'Se connecter →',
                 conn_hint: "Utilisez l'email et le code que vous avez définis lors de votre inscription.",
@@ -1365,7 +1499,23 @@
                 e_met: 'Veuillez préciser votre métier.', e_code: "Code d'accès : 4 caractères minimum.",
                 e_dem: 'Veuillez remplir tous les champs requis.',
                 e_conn: "Aucun compte trouvé ou email/code incorrect.",
-                ok_conn: "Connexion réussie. Bienvenue {name} sur Mo9f Digital !"
+                /* Dashboard utilisateur */
+                dash_note_new: "Merci pour votre confiance ! Votre demande a bien été enregistrée. Suivez ici l'évolution de votre situation.",
+                dash_note_return: "Bon retour ! Voici l'état actuel de votre situation.",
+                dash_sit_lbl: 'Situation',
+                dash_encours: 'En cours',
+                dash_valide: 'Demande Validée',
+                dash_refresh: 'Actualiser mon statut ↻',
+                dash_logout: 'Se déconnecter',
+                /* Admin */
+                admin_link: 'Espace administrateur',
+                admin_t: 'Espace Administrateur', admin_s: "Accès réservé à l'équipe Mo9f Digital.",
+                admin_lpass: 'Mot de passe *', admin_login_btn: 'Accéder →',
+                e_admin_pass: 'Mot de passe incorrect.',
+                admin_list_t: 'Inscriptions reçues', admin_list_s: 'Cochez « Traité » pour valider une demande.',
+                admin_empty: 'Aucune inscription pour le moment.',
+                admin_traite: 'Traité (Valider la demande)',
+                admin_pending: 'En cours', admin_done: 'Validé'
             },
             ar: {
                 hero_sub: 'منصة فلاحية',
@@ -1378,7 +1528,7 @@
                 sec_desc: 'تسجيل الدخول أو إنشاء حساب للوصول إلى فضائك.',
                 tab_ins: 'تسجيل', tab_ins_s: 'إنشاء حساب',
                 tab_conn: 'دخول', tab_conn_s: 'لديك حساب بالفعل',
-                s1n: 'الخطوة 1', s1l: 'معلوماتك', s2n: 'الخطوة 2', s2l: 'طلبي', s3n: 'الخطوة 3', s3l: 'تأكيد',
+                s1n: 'الخطوة 1', s1l: 'معلوماتك', s2n: 'الخطوة 2', s2l: 'طلبي',
                 f1t: 'معلوماتك', f1s: 'جميع الحقول المعلّمة بـ * إلزامية.',
                 lnom: 'الاسم العائلي *', lprenom: 'الاسم الشخصي *', lemail: 'البريد الإلكتروني *', ltel: 'رقم الواتساب *',
                 lprov: 'الإقليم *', lmet: 'المهنة *', lautre: 'وضّح مهنتك *', met_autre: 'أخرى',
@@ -1391,8 +1541,8 @@
                 lcult: 'نوع الزراعة *', lnb: 'عدد العمال *',
                 ldate: 'تاريخ البداية *', lduree: 'المدة المتوقعة *', lnotes: 'معلومات إضافية',
                 btn_dem: 'إرسال طلبي ←',
-                merci_t: 'شكراً لثقتك !',
-                merci_txt: 'سيتواصل معك فريقنا في أقرب وقت ممكن على واتساب لتنظيم اليد العاملة في جهة سوس ماسة.',
+                ph_prov: 'اختر إقليمك', ph_met: 'اختر مهنتك',
+                ph_cult: 'اختر', ph_nb: 'اختر', ph_duree: 'اختر',
                 conn_t: 'الدخول إلى فضائك', conn_s: 'أدخل بريدك الإلكتروني ورمز الدخول الشخصي.',
                 lcemail: 'البريد الإلكتروني *', lccode: 'رمز الدخول *', btn_conn: 'دخول ←',
                 conn_hint: 'استخدم البريد والرمز اللذين حددتهما عند التسجيل.',
@@ -1405,7 +1555,21 @@
                 e_met: 'يرجى توضيح مهنتك.', e_code: 'يجب أن يتكون رمز الدخول من 4 خانات على الأقل.',
                 e_dem: 'يرجى ملء جميع الحقول الإلزامية.',
                 e_conn: 'لم يُعثر على حساب أو بريد/رمز غير صحيح.',
-                ok_conn: 'تم الدخول بنجاح. مرحباً {name} في Mo9f Digital !'
+                dash_note_new: 'شكراً لثقتك! تم تسجيل طلبك بنجاح. تابع هنا تطور وضعيتك.',
+                dash_note_return: 'مرحباً بعودتك! هذه هي حالتك الحالية.',
+                dash_sit_lbl: 'الوضعية',
+                dash_encours: 'قيد المعالجة',
+                dash_valide: 'تم قبول الطلب',
+                dash_refresh: 'تحديث حالتي ↻',
+                dash_logout: 'تسجيل الخروج',
+                admin_link: 'فضاء الإدارة',
+                admin_t: 'فضاء الإدارة', admin_s: 'الدخول مخصص لفريق Mo9f Digital فقط.',
+                admin_lpass: 'كلمة المرور *', admin_login_btn: 'دخول ←',
+                e_admin_pass: 'كلمة المرور غير صحيحة.',
+                admin_list_t: 'التسجيلات المستلمة', admin_list_s: 'ضع علامة "تمت المعالجة" لتأكيد الطلب.',
+                admin_empty: 'لا توجد تسجيلات حالياً.',
+                admin_traite: 'تمت المعالجة (تأكيد الطلب)',
+                admin_pending: 'قيد المعالجة', admin_done: 'مؤكد'
             },
             en: {
                 hero_sub: 'Agricultural Platform',
@@ -1418,7 +1582,7 @@
                 sec_desc: 'Log in or create an account to access your space.',
                 tab_ins: 'Register', tab_ins_s: 'Create an account',
                 tab_conn: 'Login', tab_conn_s: 'Already registered',
-                s1n: 'Step 1', s1l: 'Your details', s2n: 'Step 2', s2l: 'My request', s3n: 'Step 3', s3l: 'Confirmation',
+                s1n: 'Step 1', s1l: 'Your details', s2n: 'Step 2', s2l: 'My request',
                 f1t: 'Your details', f1s: 'All fields marked * are required.',
                 lnom: 'Last name *', lprenom: 'First name *', lemail: 'Email *', ltel: 'WhatsApp number *',
                 lprov: 'Province *', lmet: 'Occupation *', lautre: 'Specify your occupation *', met_autre: 'Other',
@@ -1431,8 +1595,8 @@
                 lcult: 'Crop type *', lnb: 'Number of workers *',
                 ldate: 'Start date *', lduree: 'Estimated duration *', lnotes: 'Additional information',
                 btn_dem: 'Send my request →',
-                merci_t: 'Thank you for your trust!',
-                merci_txt: 'Our team will contact you as soon as possible on your WhatsApp to organize workers in the Souss-Massa region.',
+                ph_prov: 'Select your province', ph_met: 'Select your occupation',
+                ph_cult: 'Select', ph_nb: 'Select', ph_duree: 'Select',
                 conn_t: 'Log in to your space', conn_s: 'Enter your email and your personal access code.',
                 lcemail: 'Email *', lccode: 'Access code *', btn_conn: 'Log in →',
                 conn_hint: 'Use the email and code you set during registration.',
@@ -1445,11 +1609,25 @@
                 e_met: 'Please specify your occupation.', e_code: 'Access code must be at least 4 characters.',
                 e_dem: 'Please fill in all required fields.',
                 e_conn: 'No account found or incorrect email/code.',
-                ok_conn: 'Login successful. Welcome {name} to Mo9f Digital!'
+                dash_note_new: 'Thank you for your trust! Your request has been registered. Track your status here.',
+                dash_note_return: 'Welcome back! Here is your current status.',
+                dash_sit_lbl: 'Status',
+                dash_encours: 'In progress',
+                dash_valide: 'Request Approved',
+                dash_refresh: 'Refresh my status ↻',
+                dash_logout: 'Log out',
+                admin_link: 'Administrator area',
+                admin_t: 'Administrator Area', admin_s: 'Access restricted to the Mo9f Digital team.',
+                admin_lpass: 'Password *', admin_login_btn: 'Access →',
+                e_admin_pass: 'Incorrect password.',
+                admin_list_t: 'Registrations received', admin_list_s: 'Check "Processed" to approve a request.',
+                admin_empty: 'No registrations yet.',
+                admin_traite: 'Processed (Approve request)',
+                admin_pending: 'In progress', admin_done: 'Approved'
             }
         };
 
-        /* ── helper ── */
+        /* ── helpers ── */
         function qT(k) { return (TX[LANG] && TX[LANG][k]) ? TX[LANG][k] : (TX['fr'][k] || ''); }
         function qG(id) { return document.getElementById(id); }
         function qGV(id) { var e = qG(id); return e ? e.value.trim() : ''; }
@@ -1457,51 +1635,93 @@
         function qMsg(id, txt, t) { var e = qG(id); if (!e) return; e.innerHTML = txt; e.className = 'msg ' + t; }
         function qHide(id) { var e = qG(id); if (e) e.className = 'msg'; }
         function qScroll() { try { qG('mo9f').scrollTo({ top: 0, behavior: 'smooth' }); } catch (ex) { } }
+        /* Retrouve le libellé traduit d'une "key" stable dans une des listes ci-dessus */
+        function qLabelFor(list, key) {
+            for (var i = 0; i < list.length; i++) { if (list[i].key === key) return list[i][LANG] || list[i].fr; }
+            return key || '';
+        }
+
+        /* ============================================================
+           REMPLISSAGE DYNAMIQUE DES SELECTS (fix bug i18n)
+           Appelé au chargement ET à chaque changement de langue, pour que
+           les options des menus déroulants soient toujours dans la langue
+           active — tout en gardant la même "value" (key) technique.
+           ============================================================ */
+        function qFillSelects() {
+            qFillOne('p_prov', PROVINCES);
+            qFillOne('p_met', METIERS);
+            qFillOne('d_culture', CULTURES);
+            qFillOne('d_nb', NB_OPTIONS);
+            qFillOne('d_duree', DUREES);
+        }
+        function qFillOne(selId, list) {
+            var sel = qG(selId);
+            if (!sel) return;
+            var prevVal = sel.value; // on garde la sélection de l'utilisateur si elle existe
+            var phKey = sel.getAttribute('data-ph');
+            var phText = phKey ? qT(phKey) : '';
+            var html = '<option value="">' + phText + '</option>';
+            for (var i = 0; i < list.length; i++) {
+                html += '<option value="' + list[i].key + '">' + (list[i][LANG] || list[i].fr) + '</option>';
+            }
+            sel.innerHTML = html;
+            if (prevVal) { sel.value = prevVal; }
+        }
 
         /* ── LANGUE ── */
         function qSetLang(l) {
             LANG = l;
-            /* boutons actif */
             var bs = document.querySelectorAll('#mo9f .lb');
             for (var i = 0; i < bs.length; i++) bs[i].classList.remove('act');
             if (l === 'fr') bs[0].classList.add('act');
             if (l === 'ar') bs[1].classList.add('act');
             if (l === 'en') bs[2].classList.add('act');
-            /* direction */
             qG('mo9f').setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
             var t = TX[l]; if (!t) return;
-            /* map id → clé traduction */
             var M = {
                 d_hero_sub: 'hero_sub', d_hero_title: 'hero_title', d_hero_sub2: 'hero_sub2',
                 d_miss_lbl: 'miss_lbl', d_miss_txt: 'miss_txt', d_pill: 'pill',
                 d_sec_sub: 'sec_sub', d_sec_desc: 'sec_desc',
                 d_tab_ins: 'tab_ins', d_tab_ins_s: 'tab_ins_s',
                 d_tab_conn: 'tab_conn', d_tab_conn_s: 'tab_conn_s',
-                d_s1n: 's1n', d_s1l: 's1l', d_s2n: 's2n', d_s2l: 's2l', d_s3n: 's3n', d_s3l: 's3l',
+                d_s1n: 's1n', d_s1l: 's1l', d_s2n: 's2n', d_s2l: 's2l',
                 d_f1t: 'f1t', d_f1s: 'f1s',
                 d_lnom: 'lnom', d_lprenom: 'lprenom', d_lemail: 'lemail', d_ltel: 'ltel',
-                d_lprov: 'lprov', d_lmet: 'lmet', d_lautre: 'lautre', d_met_autre: 'met_autre',
+                d_lprov: 'lprov', d_lmet: 'lmet', d_lautre: 'lautre',
                 d_lcode: 'lcode', d_hint_code: 'hint_code', btn_ins: 'btn_ins',
                 d_badge: 'badge', d_bverif: 'bverif', d_note_wa: 'note_wa',
                 d_demt: 'demt', d_dems: 'dems', d_lcult: 'lcult', d_lnb: 'lnb',
                 d_ldate: 'ldate', d_lduree: 'lduree', d_lnotes: 'lnotes', btn_dem: 'btn_dem',
-                d_merci_t: 'merci_t', d_merci_txt: 'merci_txt',
                 d_conn_t: 'conn_t', d_conn_s: 'conn_s', d_lcemail: 'lcemail',
                 d_lccode: 'lccode', btn_conn: 'btn_conn', d_conn_hint: 'conn_hint',
                 d_clbl: 'clbl', d_ftag: 'ftag', d_finfo: 'finfo', d_fteam: 'fteam',
-                d_frole1: 'frole', d_frole2: 'frole', d_femail: 'femail'
+                d_frole1: 'frole', d_frole2: 'frole', d_femail: 'femail',
+                d_dash_sit_lbl: 'dash_sit_lbl', btn_dash_refresh: 'dash_refresh', btn_dash_logout: 'dash_logout',
+                d_admin_link: 'admin_link', d_admin_t: 'admin_t', d_admin_s: 'admin_s',
+                d_admin_lpass: 'admin_lpass', btn_admin_login: 'admin_login_btn',
+                d_admin_list_t: 'admin_list_t', d_admin_list_s: 'admin_list_s'
             };
             for (var id in M) { qSet(id, t[M[id]]); }
+
+            /* Ré-remplit les menus déroulants dans la nouvelle langue */
+            qFillSelects();
+
+            /* Si le dashboard ou l'admin sont déjà affichés, on les redessine aussi */
+            if (qG('panel_dash') && qG('panel_dash').classList.contains('on')) qRenderDash();
+            if (qG('admin_panel') && qG('admin_panel').style.display === 'block') qRenderAdminList();
         }
 
         /* ── TABS ── */
         function qTab(w) {
             qG('panel_ins').classList.remove('on');
             qG('panel_conn').classList.remove('on');
+            qG('panel_dash').classList.remove('on');
+            qG('panel_admin').classList.remove('on');
             qG('t_ins').classList.remove('on');
             qG('t_conn').classList.remove('on');
             qG('panel_' + w).classList.add('on');
-            qG('t_' + w).classList.add('on');
+            var tabBtn = qG('t_' + w);
+            if (tabBtn) tabBtn.classList.add('on');
             qScroll();
         }
 
@@ -1519,24 +1739,21 @@
             if (v !== 'autre') qG('p_autre').value = '';
         }
 
-        /* ── ÉTAPE 1 — INSCRIPTION ──
-           Validation stricte et robuste :
-           - chaque select est lu via .value (pas selectedIndex)
-           - on reset toutes les erreurs avant de re-valider
-           - les champs manquants sont listés précisément
-           ── */
+        /* ============================================================
+           ÉTAPE 1 — INSCRIPTION
+           Crée l'enregistrement avec statut initial "En cours" et
+           l'ajoute à la base locale (qDBAdd).
+           ============================================================ */
         function qValider1() {
-            /* lecture */
             var nom = qGV('p_nom');
             var prenom = qGV('p_prenom');
             var email = qGV('p_email');
             var tel = qG('p_tel').value.replace(/\D/g, '');
-            var prov = qG('p_prov').value;    /* .value sur le select directement */
-            var met = qG('p_met').value;     /* .value sur le select directement */
+            var prov = qG('p_prov').value;
+            var met = qG('p_met').value;
             var autre = qGV('p_autre');
             var code = qGV('p_code');
 
-            /* reset erreurs */
             qHide('msg1');
             ['ferr_email', 'ferr_tel', 'ferr_prov', 'ferr_met'].forEach(function (id) {
                 qG(id).className = 'ferr';
@@ -1545,7 +1762,6 @@
                 qG(id).className = '';
             });
 
-            /* champs manquants */
             var miss = [];
             if (!nom) miss.push(qT('lnom').replace(' *', ''));
             if (!prenom) miss.push(qT('lprenom').replace(' *', ''));
@@ -1568,7 +1784,6 @@
                 return;
             }
 
-            /* validations format */
             if (email.indexOf('@') < 1 || email.lastIndexOf('.') < email.indexOf('@') + 2) {
                 qMsg('msg1', qT('e_email'), 'err');
                 qG('ferr_email').className = 'ferr on'; return;
@@ -1585,18 +1800,21 @@
                 qMsg('msg1', qT('e_code'), 'err'); return;
             }
 
-            /* sauvegarder */
+            /* Construction de l'enregistrement — statut initial "En cours" */
             QUD = {
+                id: '#MD-' + Math.floor(1000 + Math.random() * 9000),
                 nom: nom, prenom: prenom, email: email, tel: tel,
                 province: prov, metier: (met === 'autre') ? autre : met,
                 code: code,
-                id: '#MD-' + Math.floor(1000 + Math.random() * 9000)
+                statut: 'En cours',
+                demande: null,
+                createdAt: new Date().toISOString()
             };
 
-            /* sauvegarder dans localStorage pour la connexion */
-            try { localStorage.setItem('mo9f_' + email.toLowerCase(), JSON.stringify(QUD)); } catch (e) { }
+            /* Enregistrement dans la base locale (prototype) */
+            qDBAdd(QUD);
 
-            /* afficher étape 2 */
+            /* Affichage de l'étape 2 */
             qG('e1').style.display = 'none';
             qG('e2').style.display = 'block';
             qG('st1').className = 'step done';
@@ -1605,25 +1823,24 @@
             qG('e2_av').textContent = QUD.prenom.charAt(0).toUpperCase();
             qG('e2_name').textContent = QUD.prenom + ' ' + QUD.nom;
             qG('e2_id').textContent = QUD.id;
-            qG('merci_id').textContent = QUD.id;
             qG('d_note_wa').innerHTML = qT('note_wa');
             qG('e2_grid').innerHTML =
                 '<div class="pav-item"><div class="pk">' + qT('lnom').replace(' *', '') + '</div><div class="pv">' + QUD.nom + '</div></div>' +
                 '<div class="pav-item"><div class="pk">' + qT('lprenom').replace(' *', '') + '</div><div class="pv">' + QUD.prenom + '</div></div>' +
                 '<div class="pav-item"><div class="pk">' + qT('lemail').replace(' *', '') + '</div><div class="pv">' + QUD.email + '</div></div>' +
                 '<div class="pav-item"><div class="pk">' + qT('ltel').replace(' *', '') + '</div><div class="pv">' + QUD.tel + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + QUD.province + '</div></div>' +
-                '<div class="pav-item s2"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + QUD.metier + '</div></div>';
+                '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + qLabelFor(PROVINCES, QUD.province) + '</div></div>' +
+                '<div class="pav-item s2"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + (met === 'autre' ? QUD.metier : qLabelFor(METIERS, QUD.metier)) + '</div></div>';
             qScroll();
 
-            /* Formspree */
+            /* Formspree — notification email à chaque nouvelle inscription */
             qFS({
                 'Nom': QUD.nom, 'Prenom': QUD.prenom, 'Email': QUD.email, 'Telephone': QUD.tel,
-                'Province': QUD.province, 'Metier': QUD.metier, 'ID': QUD.id,
+                'Province': QUD.province, 'Metier': QUD.metier, 'ID': QUD.id, 'Statut': QUD.statut,
                 '_replyto': QUD.email, '_subject': 'Inscription Mo9f Digital - ' + QUD.prenom + ' ' + QUD.nom
             });
 
-            /* WhatsApp équipe silencieux — aucun numéro visible sur le site */
+            /* WhatsApp équipe (silencieux, numéros non affichés publiquement) */
             var wm = 'Nouvelle inscription Mo9f Digital\nNom: ' + QUD.prenom + ' ' + QUD.nom +
                 '\nTel: ' + QUD.tel + '\nEmail: ' + QUD.email + '\nProvince: ' + QUD.province +
                 '\nMetier: ' + QUD.metier + '\nID: ' + QUD.id;
@@ -1631,7 +1848,12 @@
             setTimeout(function () { qWA('212657065239', wm); }, 1500);
         }
 
-        /* ── ÉTAPE 2 — ENVOI DEMANDE ── */
+        /* ============================================================
+           ÉTAPE 2 — ENVOI DE LA DEMANDE
+           Met à jour l'enregistrement existant (le statut reste "En cours"
+           jusqu'à validation manuelle par l'admin), puis ouvre directement
+           le Dashboard utilisateur (remplace l'ancienne "étape 3").
+           ============================================================ */
         function qEnvoyer() {
             var cult = qG('d_culture').value;
             var nb = qG('d_nb').value;
@@ -1647,11 +1869,15 @@
             var btn = qG('btn_dem');
             if (btn) { btn.disabled = true; btn.textContent = '...'; }
 
+            var demandeObj = { culture: cult, nb: nb, date: date, duree: duree, notes: notes || '' };
+            QUD.demande = demandeObj;
+            qDBUpdateById(QUD.id, { demande: demandeObj });
+
             qFS({
                 'Nom': QUD.nom || '', 'Prenom': QUD.prenom || '', 'Telephone': QUD.tel || '',
                 'Province': QUD.province || '', 'Metier': QUD.metier || '',
                 'Culture': cult, 'Nb_ouvriers': nb, 'Date_debut': date, 'Duree': duree,
-                'Notes': notes || 'Aucune', 'ID': QUD.id || '',
+                'Notes': notes || 'Aucune', 'ID': QUD.id || '', 'Statut': QUD.statut || 'En cours',
                 '_subject': 'Demande main-oeuvre - ' + (QUD.prenom || '') + ' ' + (QUD.nom || '')
             });
 
@@ -1662,18 +1888,14 @@
             qWA('212656682654', wm2);
             setTimeout(function () { qWA('212657065239', wm2); }, 1500);
 
-            /* étape 3 MERCI */
-            qG('e2').style.display = 'none';
+            /* Fin du parcours d'inscription : étape 2 marquée "done", puis Dashboard */
             qG('st2').className = 'step done';
-            qG('st3').className = 'step on';
-            qG('sln2').className = 'sln done';
-            qSet('d_merci_t', qT('merci_t'));
-            qSet('d_merci_txt', qT('merci_txt'));
-            qG('merci_box').className = 'merci on';
-            qScroll();
+            qGoDash(true);
         }
 
-        /* ── CONNEXION ── */
+        /* ============================================================
+           CONNEXION
+           ============================================================ */
         function qValConn() {
             var email = qGV('conn_email'), code = qGV('conn_code');
             qHide('msg_conn');
@@ -1689,39 +1911,187 @@
                 qMsg('msg_conn', qT('e_code'), 'err'); return;
             }
 
-            /* 1. vérifier session courante */
-            if (QUD.email && email.toLowerCase() === QUD.email.toLowerCase() && code === QUD.code) {
-                qMsg('msg_conn', qT('ok_conn').replace('{name}', QUD.prenom), 'ok'); return;
-            }
-            /* 2. vérifier localStorage */
-            var raw = null;
-            try { raw = localStorage.getItem('mo9f_' + email.toLowerCase()); } catch (e) { }
-            if (raw) {
-                var d = null;
-                try { d = JSON.parse(raw); } catch (e) { }
-                if (d && d.code === code) {
-                    qMsg('msg_conn', qT('ok_conn').replace('{name}', d.prenom), 'ok'); return;
-                }
+            var rec = qDBFindByEmail(email);
+            if (rec && rec.code === code) {
+                QUD = rec; /* on récupère la version la plus à jour (statut inclus) */
+                qGoDash(false);
+                return;
             }
             qMsg('msg_conn', qT('e_conn'), 'err');
         }
 
-        /* ── FORMSPREE ── */
+        /* ============================================================
+           DASHBOARD UTILISATEUR
+           ============================================================ */
+        function qGoDash(isNew) {
+            qG('panel_ins').classList.remove('on');
+            qG('panel_conn').classList.remove('on');
+            qG('panel_admin').classList.remove('on');
+            qG('t_ins').classList.remove('on');
+            qG('t_conn').classList.remove('on');
+            qG('panel_dash').classList.add('on');
+            qRenderDash(isNew);
+            qScroll();
+        }
+
+        function qRenderDash(isNew) {
+            if (!QUD || !QUD.email) return;
+            qG('dash_av').textContent = (QUD.prenom || '?').charAt(0).toUpperCase();
+            qG('dash_name').textContent = (QUD.prenom || '') + ' ' + (QUD.nom || '');
+            qG('dash_id').textContent = QUD.id || '';
+            qG('dash_note').textContent = isNew ? qT('dash_note_new') : qT('dash_note_return');
+
+            var grid =
+                '<div class="pav-item"><div class="pk">' + qT('lemail').replace(' *', '') + '</div><div class="pv">' + QUD.email + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('ltel').replace(' *', '') + '</div><div class="pv">' + QUD.tel + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + qLabelFor(PROVINCES, QUD.province) + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + (qLabelFor(METIERS, QUD.metier) || QUD.metier) + '</div></div>';
+            if (QUD.demande) {
+                grid += '<div class="pav-item s2"><div class="pk">' + qT('lcult').replace(' *', '') + '</div><div class="pv">' +
+                    qLabelFor(CULTURES, QUD.demande.culture) + ' · ' + qLabelFor(NB_OPTIONS, QUD.demande.nb) + ' · ' +
+                    QUD.demande.date + ' · ' + qLabelFor(DUREES, QUD.demande.duree) + '</div></div>';
+            }
+            qG('dash_grid').innerHTML = grid;
+
+            qRenderDashBadge();
+        }
+
+        /* Rendu conditionnel de la case "Situation" : En cours / Validé */
+        function qRenderDashBadge() {
+            var host = qG('dash_badge');
+            if (!host) return;
+            if (QUD.statut === 'Valide') {
+                host.innerHTML = '<span class="badge-ok">&#10003; ' + qT('dash_valide') + '</span>';
+            } else {
+                host.innerHTML = '<span class="badge-pending">&#8987; ' + qT('dash_encours') + '</span>';
+            }
+        }
+
+        /* Permet à l'utilisateur de vérifier si l'admin a validé sa demande */
+        function qRefreshDash() {
+            var fresh = qDBFindByEmail(QUD.email);
+            if (fresh) { QUD = fresh; }
+            qRenderDashBadge();
+        }
+
+        function qLogoutDash() {
+            QUD = {};
+            qG('panel_dash').classList.remove('on');
+            qG('panel_conn').classList.add('on');
+            qG('t_conn').classList.add('on');
+            qScroll();
+        }
+
+        /* ============================================================
+           ESPACE ADMIN
+           ------------------------------------------------------------
+           Protection par mot de passe CÔTÉ CLIENT — suffisant pour un
+           prototype/démo, mais PAS une vraie sécurité (le mot de passe
+           est visible dans le code source). Pour la production, protégez
+           cette page avec une authentification côté serveur (ex: Firebase
+           Auth) et ne servez la liste des inscriptions qu'après vérification.
+           ============================================================ */
+        var ADMIN_PASS = 'mo9f2026'; // À changer / à remplacer par une vraie authentification en production
+
+        function qGoAdmin() {
+            qG('panel_ins').classList.remove('on');
+            qG('panel_conn').classList.remove('on');
+            qG('panel_dash').classList.remove('on');
+            qG('t_ins').classList.remove('on');
+            qG('t_conn').classList.remove('on');
+            qG('panel_admin').classList.add('on');
+            qScroll();
+        }
+
+        function qAdminLogin() {
+            var p = qGV('admin_pass');
+            qHide('msg_admin');
+            if (p === ADMIN_PASS) {
+                qG('admin_gate').style.display = 'none';
+                qG('admin_panel').style.display = 'block';
+                qRenderAdminList();
+            } else {
+                qMsg('msg_admin', qT('e_admin_pass'), 'err');
+            }
+        }
+
+        function qRenderAdminList() {
+            var host = qG('admin_list');
+            if (!host) return;
+            var all = qDBGetAll();
+            if (!all.length) {
+                host.innerHTML = '<div class="card" style="text-align:center;color:#7A7A6E">' + qT('admin_empty') + '</div>';
+                return;
+            }
+            var html = '';
+            /* Les plus récentes en premier */
+            all.slice().reverse().forEach(function (r) {
+                var isDone = r.statut === 'Valide';
+                var checked = isDone ? 'checked' : '';
+                var statLabel = isDone ? qT('admin_done') : qT('admin_pending');
+                var statClass = isDone ? 'done' : 'pend';
+                var demandeHtml = r.demande ? (
+                    '<div class="pav-item s2"><div class="pk">' + qT('lcult').replace(' *', '') + '</div><div class="pv">' +
+                    qLabelFor(CULTURES, r.demande.culture) + ' · ' + qLabelFor(NB_OPTIONS, r.demande.nb) + ' · ' +
+                    (r.demande.date || '') + ' · ' + qLabelFor(DUREES, r.demande.duree) + '</div></div>'
+                ) : '';
+                html +=
+                    '<div class="admin-card">' +
+                    '<div class="pav-top" style="border-bottom:none;padding-bottom:0;margin-bottom:14px">' +
+                    '<div class="pav-av">' + (r.prenom || '?').charAt(0).toUpperCase() + '</div>' +
+                    '<div style="flex:1">' +
+                    '<div class="pav-name" style="font-size:18px">' + r.prenom + ' ' + r.nom + '</div>' +
+                    '<div class="pav-id">' + r.id + '</div>' +
+                    '</div>' +
+                    '<span class="admin-stat ' + statClass + '">' + statLabel + '</span>' +
+                    '</div>' +
+                    '<div class="pav-grid">' +
+                    '<div class="pav-item"><div class="pk">Email</div><div class="pv">' + r.email + '</div></div>' +
+                    '<div class="pav-item"><div class="pk">' + qT('ltel').replace(' *', '') + '</div><div class="pv">' + r.tel + '</div></div>' +
+                    '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + qLabelFor(PROVINCES, r.province) + '</div></div>' +
+                    '<div class="pav-item"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + (qLabelFor(METIERS, r.metier) || r.metier) + '</div></div>' +
+                    demandeHtml +
+                    '</div>' +
+                    '<label class="admin-check">' +
+                    '<input type="checkbox" ' + checked + ' onchange="qToggleStatut(\'' + r.id + '\', this.checked)"/> ' +
+                    qT('admin_traite') +
+                    '</label>' +
+                    '</div>';
+            });
+            host.innerHTML = html;
+        }
+
+        /* Coche "Traité" → passe le statut de "En cours" à "Valide" (et inversement) */
+        function qToggleStatut(id, isChecked) {
+            var newStatut = isChecked ? 'Valide' : 'En cours';
+            qDBUpdateById(id, { statut: newStatut });
+            if (QUD && QUD.id === id) { QUD.statut = newStatut; }
+            qRenderAdminList();
+        }
+
+        /* ============================================================
+           FORMSPREE — notification email à chaque soumission
+           ============================================================ */
         function qFS(data) {
             try {
                 var fd = new FormData();
                 for (var k in data) fd.append(k, data[k]);
-                fetch('https://formspree.io/f/xeoqljpq', {
+                fetch('https://formspree.io/f/xeebdlav', {
                     method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
                 }).catch(function () { });
             } catch (e) { }
         }
 
-        /* ── WHATSAPP SILENCIEUX ── */
+        /* ── WHATSAPP SILENCIEUX (équipe interne, numéros non affichés) ── */
         function qWA(num, msg) {
             var img = new Image();
             img.src = 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
         }
+
+        /* ============================================================
+           INITIALISATION
+           ============================================================ */
+        qSetLang('fr');
 
         //]]>
     </script>
