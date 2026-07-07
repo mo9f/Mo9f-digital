@@ -1,1017 +1,995 @@
-<!DOCTYPE html>
-<html lang="fr">
+<b:if cond='data:view.isHomepage'>
+    <div id='mo9f' dir='ltr'>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MO9F DIGITAL — Plateforme Agricole</title>
+        <link
+            href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap'
+            rel='stylesheet' />
 
-    <link
-        href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap'
-        rel='stylesheet' />
-
-    <style>
-        /* ============================================================
-     RESET & BASE
-     ============================================================ */
-        #mo9f,
-        #mo9f * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
-        }
-
-        #mo9f {
-            font-family: Inter, Arial, sans-serif;
-            color: #1C2B1E;
-            font-size: 15px;
-            line-height: 1.6;
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            z-index: 2147483647;
-            overflow-y: auto;
-            background: #F7F4EF;
-        }
-
-        #mo9f[dir='rtl'] {
-            text-align: right
-        }
-
-        /* ============================================================
-     CENTRAGE GLOBAL
-     ============================================================ */
-        #mo9f .wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 0 24px
-        }
-
-        #mo9f .wrap-sm {
-            max-width: 760px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 0 20px
-        }
-
-        /* ============================================================
-     NAV
-     ============================================================ */
-        #mo9f .nav {
-            background: #1C2B1E;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
-        }
-
-        #mo9f .nav-logo {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        #mo9f .nav-logo b {
-            color: #C9991A
-        }
-
-        #mo9f .lsw {
-            display: flex;
-            gap: 6px
-        }
-
-        #mo9f .lb {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, .25);
-            color: rgba(255, 255, 255, .6);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            padding: 5px 10px;
-            border-radius: 2px;
-            cursor: pointer;
-            font-family: Inter, Arial, sans-serif;
-            transition: all .2s;
-        }
-
-        #mo9f .lb:hover,
-        #mo9f .lb.act {
-            background: #C9991A;
-            border-color: #C9991A;
-            color: #1C2B1E;
-        }
-
-        /* ============================================================
-     HERO
-     ============================================================ */
-        #mo9f .hero {
-            background: #1C2B1E;
-            padding: 72px 24px 80px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        #mo9f .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: .18;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='200' viewBox='0 0 160 200'%3E%3Cg fill='%23C9991A' opacity='0.9'%3E%3Crect x='56' y='60' width='10' height='100' rx='5'/%3E%3Crect x='36' y='95' width='10' height='50' rx='5'/%3E%3Crect x='36' y='95' width='30' height='10' rx='5'/%3E%3Crect x='76' y='80' width='10' height='40' rx='5'/%3E%3Crect x='76' y='80' width='24' height='10' rx='5'/%3E%3Cellipse cx='61' cy='165' rx='10' ry='6'/%3E%3Crect x='115' y='90' width='8' height='75' rx='4'/%3E%3Crect x='99' y='118' width='8' height='35' rx='4'/%3E%3Crect x='99' y='118' width='24' height='8' rx='4'/%3E%3Cellipse cx='119' cy='168' rx='8' ry='5'/%3E%3Crect x='18' y='110' width='6' height='55' rx='3'/%3E%3Cellipse cx='21' cy='168' rx='6' ry='4'/%3E%3C/g%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 160px 200px;
-        }
-
-        #mo9f .hero>* {
-            position: relative;
-            z-index: 1
-        }
-
-        #mo9f .hero-c {
-            text-align: center;
-            margin-bottom: 12px
-        }
-
-        #mo9f .hero-title {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 64px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            line-height: 1.05;
-            margin-bottom: 6px;
-            text-shadow: 0 2px 16px rgba(0, 0, 0, .45);
-        }
-
-        #mo9f .hero-title b {
-            color: #C9991A;
-            text-shadow: 0 2px 12px rgba(201, 153, 26, .4)
-        }
-
-        #mo9f .hero-subtitle {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .45);
-            margin-top: 4px;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, .4);
-        }
-
-        @media(max-width:600px) {
-            #mo9f .hero-title {
-                font-size: 36px
+        <style>
+            /* ============================================================
+   RESET & BASE
+   ============================================================ */
+            #mo9f,
+            #mo9f * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box
             }
-        }
 
-        #mo9f .hero-main {
-            max-width: 680px;
-            margin: 52px auto 0
-        }
+            #mo9f {
+                font-family: Inter, Arial, sans-serif;
+                color: #1C2B1E;
+                font-size: 15px;
+                line-height: 1.6;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                z-index: 2147483647;
+                overflow-y: auto;
+                background: #F7F4EF;
+            }
 
-        #mo9f .hero-main h2 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.35;
-            margin-bottom: 14px;
-            text-shadow: 0 2px 14px rgba(0, 0, 0, .5);
-        }
+            #mo9f[dir='rtl'] {
+                text-align: right
+            }
 
-        #mo9f .hero-sub {
-            color: rgba(255, 255, 255, .6);
-            font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            text-shadow: 0 1px 6px rgba(0, 0, 0, .3);
-        }
+            /* ============================================================
+   CENTRAGE GLOBAL — conteneur centré 1200px max
+   ============================================================ */
+            #mo9f .wrap {
+                max-width: 1200px;
+                margin: 0 auto;
+                width: 100%;
+                padding: 0 24px
+            }
 
-        #mo9f .hero-box {
-            border-left: 2px solid #C9991A;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, .05);
-            margin-bottom: 18px;
-            text-align: left;
-        }
+            #mo9f .wrap-sm {
+                max-width: 760px;
+                margin: 0 auto;
+                width: 100%;
+                padding: 0 20px
+            }
 
-        #mo9f[dir='rtl'] .hero-box {
-            border-left: none;
-            border-right: 2px solid #C9991A;
-            text-align: right
-        }
+            /* ============================================================
+   NAV
+   ============================================================ */
+            #mo9f .nav {
+                background: #1C2B1E;
+                height: 56px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 24px;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+            }
 
-        #mo9f .hero-box-lbl {
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #C9991A;
-            margin-bottom: 7px;
-            font-weight: 600;
-        }
+            #mo9f .nav-logo {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 20px;
+                font-weight: 700;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                color: #fff;
+            }
 
-        #mo9f .hero-box p {
-            font-size: 13px;
-            color: rgba(255, 255, 255, .5);
-            line-height: 1.75;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, .25);
-        }
+            #mo9f .nav-logo b {
+                color: #C9991A
+            }
 
-        #mo9f .pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #1C2B1E;
-            background: #C9991A;
-            padding: 5px 14px;
-            border-radius: 2px;
-        }
+            #mo9f .lsw {
+                display: flex;
+                gap: 6px
+            }
 
-        /* ============================================================
-     BANDE COULEUR
-     ============================================================ */
-        #mo9f .band {
-            height: 3px;
-            background: linear-gradient(90deg, #C9991A, #40916C, #1C2B1E)
-        }
+            #mo9f .lb {
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, .25);
+                color: rgba(255, 255, 255, .6);
+                font-size: 11px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                padding: 5px 10px;
+                border-radius: 2px;
+                cursor: pointer;
+                font-family: Inter, Arial, sans-serif;
+                transition: all .2s;
+            }
 
-        /* ============================================================
-     SECTION CENTRALE
-     ============================================================ */
-        #mo9f .main {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 60px 20px 80px;
-        }
+            #mo9f .lb:hover,
+            #mo9f .lb.act {
+                background: #C9991A;
+                border-color: #C9991A;
+                color: #1C2B1E;
+            }
 
-        #mo9f .sec {
-            text-align: center;
-            margin-bottom: 48px
-        }
+            /* ============================================================
+   HERO — cactus SVG intégrés + ombres texte
+   ============================================================ */
+            #mo9f .hero {
+                background: #1C2B1E;
+                padding: 72px 24px 80px;
+                position: relative;
+                overflow: hidden;
+                text-align: center;
+            }
 
-        #mo9f .sec-t {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 30px;
-            font-weight: 700;
-            color: #1C2B1E;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
+            #mo9f .hero::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+                opacity: .18;
+                pointer-events: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='200' viewBox='0 0 160 200'%3E%3Cg fill='%23C9991A' opacity='0.9'%3E%3Crect x='56' y='60' width='10' height='100' rx='5'/%3E%3Crect x='36' y='95' width='10' height='50' rx='5'/%3E%3Crect x='36' y='95' width='30' height='10' rx='5'/%3E%3Crect x='76' y='80' width='10' height='40' rx='5'/%3E%3Crect x='76' y='80' width='24' height='10' rx='5'/%3E%3Cellipse cx='61' cy='165' rx='10' ry='6'/%3E%3Crect x='115' y='90' width='8' height='75' rx='4'/%3E%3Crect x='99' y='118' width='8' height='35' rx='4'/%3E%3Crect x='99' y='118' width='24' height='8' rx='4'/%3E%3Cellipse cx='119' cy='168' rx='8' ry='5'/%3E%3Crect x='18' y='110' width='6' height='55' rx='3'/%3E%3Cellipse cx='21' cy='168' rx='6' ry='4'/%3E%3C/g%3E%3C/svg%3E");
+                background-repeat: repeat;
+                background-size: 160px 200px;
+            }
 
-        #mo9f .sec-t b {
-            color: #C9991A
-        }
+            #mo9f .hero>* {
+                position: relative;
+                z-index: 1
+            }
 
-        #mo9f .sec-s {
-            font-size: 12px;
-            color: #7A7A6E;
-            letter-spacing: .5px;
-            margin-bottom: 6px
-        }
+            #mo9f .hero-c {
+                text-align: center;
+                margin-bottom: 12px
+            }
 
-        #mo9f .sec-d {
-            font-size: 13px;
-            color: #7A7A6E;
-            max-width: 420px;
-            margin: 0 auto
-        }
+            #mo9f .hero-title {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 64px;
+                font-weight: 700;
+                color: #fff;
+                letter-spacing: 6px;
+                text-transform: uppercase;
+                line-height: 1.05;
+                margin-bottom: 6px;
+                text-shadow: 0 2px 16px rgba(0, 0, 0, .45);
+            }
 
-        /* ============================================================
-     TABS
-     ============================================================ */
-        #mo9f .tabs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 36px
-        }
+            #mo9f .hero-title b {
+                color: #C9991A;
+                text-shadow: 0 2px 12px rgba(201, 153, 26, .4)
+            }
 
-        #mo9f .tab {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 22px 16px;
-            background: #fff;
-            border: 1.5px solid #EAE7E0;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all .25s;
-            position: relative;
-            overflow: hidden;
-        }
+            #mo9f .hero-subtitle {
+                font-size: 11px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, .45);
+                margin-top: 4px;
+                text-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+            }
 
-        #mo9f .tab::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #C9991A;
-            transform: scaleX(0);
-            transition: transform .25s;
-        }
+            @media(max-width:600px) {
+                #mo9f .hero-title {
+                    font-size: 36px
+                }
+            }
 
-        #mo9f .tab.on {
-            border-color: #1C2B1E;
-            background: #1C2B1E
-        }
+            #mo9f .hero-main {
+                max-width: 680px;
+                margin: 52px auto 0
+            }
 
-        #mo9f .tab.on::after {
-            transform: scaleX(1)
-        }
+            #mo9f .hero-main h2 {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 32px;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1.35;
+                margin-bottom: 14px;
+                text-shadow: 0 2px 14px rgba(0, 0, 0, .5);
+            }
 
-        #mo9f .tab-ico {
-            font-size: 22px
-        }
+            #mo9f .hero-sub {
+                color: rgba(255, 255, 255, .6);
+                font-size: 14px;
+                line-height: 1.8;
+                margin-bottom: 24px;
+                text-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+            }
 
-        #mo9f .tab-l {
-            font-size: 13px;
-            font-weight: 600;
-            color: #1C2B1E;
-            transition: color .25s
-        }
+            #mo9f .hero-box {
+                border-left: 2px solid #C9991A;
+                padding: 14px 18px;
+                background: rgba(255, 255, 255, .05);
+                margin-bottom: 18px;
+                text-align: left;
+            }
 
-        #mo9f .tab-s {
-            font-size: 11px;
-            color: #7A7A6E;
-            transition: color .25s
-        }
+            #mo9f[dir='rtl'] .hero-box {
+                border-left: none;
+                border-right: 2px solid #C9991A;
+                text-align: right
+            }
 
-        #mo9f .tab.on .tab-l {
-            color: #fff
-        }
+            #mo9f .hero-box-lbl {
+                font-size: 9px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #C9991A;
+                margin-bottom: 7px;
+                font-weight: 600;
+            }
 
-        #mo9f .tab.on .tab-s {
-            color: rgba(255, 255, 255, .5)
-        }
+            #mo9f .hero-box p {
+                font-size: 13px;
+                color: rgba(255, 255, 255, .5);
+                line-height: 1.75;
+                text-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+            }
 
-        /* ============================================================
-     PANELS
-     ============================================================ */
-        #mo9f .panel {
-            display: none
-        }
+            #mo9f .pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 10px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                color: #1C2B1E;
+                background: #C9991A;
+                padding: 5px 14px;
+                border-radius: 2px;
+            }
 
-        #mo9f .panel.on {
-            display: block
-        }
+            /* ============================================================
+   BANDE COULEUR
+   ============================================================ */
+            #mo9f .band {
+                height: 3px;
+                background: linear-gradient(90deg, #C9991A, #40916C, #1C2B1E)
+            }
 
-        /* ============================================================
-     STEPS
-     ============================================================ */
-        #mo9f .steps {
-            display: flex;
-            align-items: center;
-            background: #fff;
-            border: 1px solid #EAE7E0;
-            border-radius: 4px;
-            padding: 16px 20px;
-            margin-bottom: 28px;
-            box-shadow: 0 1px 6px rgba(0, 0, 0, .04);
-        }
+            /* ============================================================
+   SECTION CENTRALE
+   ============================================================ */
+            #mo9f .main {
+                max-width: 760px;
+                margin: 0 auto;
+                padding: 60px 20px 80px;
+            }
 
-        #mo9f .step {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-            min-width: 0
-        }
+            #mo9f .sec {
+                text-align: center;
+                margin-bottom: 48px
+            }
 
-        #mo9f .dot {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #EAE7E0;
-            color: #7A7A6E;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            flex-shrink: 0;
-            border: 1.5px solid transparent;
-            transition: all .3s;
-        }
+            #mo9f .sec-t {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 30px;
+                font-weight: 700;
+                color: #1C2B1E;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+            }
 
-        #mo9f .step-n {
-            font-size: 9px;
-            color: #7A7A6E;
-            letter-spacing: .5px;
-            font-weight: 600;
-            text-transform: uppercase
-        }
+            #mo9f .sec-t b {
+                color: #C9991A
+            }
 
-        #mo9f .step-l {
-            font-size: 12px;
-            font-weight: 600;
-            color: #7A7A6E
-        }
+            #mo9f .sec-s {
+                font-size: 12px;
+                color: #7A7A6E;
+                letter-spacing: .5px;
+                margin-bottom: 6px
+            }
 
-        #mo9f .step.on .dot {
-            background: #1C2B1E;
-            color: #fff;
-            border-color: #1C2B1E;
-            box-shadow: 0 0 0 3px rgba(28, 43, 30, .12)
-        }
+            #mo9f .sec-d {
+                font-size: 13px;
+                color: #7A7A6E;
+                max-width: 420px;
+                margin: 0 auto
+            }
 
-        #mo9f .step.on .step-n,
-        #mo9f .step.on .step-l {
-            color: #1C2B1E
-        }
+            /* ============================================================
+   TABS
+   ============================================================ */
+            #mo9f .tabs {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                margin-bottom: 36px
+            }
 
-        #mo9f .step.done .dot {
-            background: #C9991A;
-            color: #1C2B1E;
-            border-color: #C9991A
-        }
+            #mo9f .tab {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                padding: 22px 16px;
+                background: #fff;
+                border: 1.5px solid #EAE7E0;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: all .25s;
+                position: relative;
+                overflow: hidden;
+            }
 
-        #mo9f .step.done .step-n,
-        #mo9f .step.done .step-l {
-            color: #C9991A
-        }
+            #mo9f .tab::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: #C9991A;
+                transform: scaleX(0);
+                transition: transform .25s;
+            }
 
-        #mo9f .sln {
-            flex: 1;
-            height: 1px;
-            background: #EAE7E0;
-            margin: 0 8px;
-            transition: background .3s;
-            min-width: 12px
-        }
+            #mo9f .tab.on {
+                border-color: #1C2B1E;
+                background: #1C2B1E
+            }
 
-        #mo9f .sln.done {
-            background: #C9991A
-        }
+            #mo9f .tab.on::after {
+                transform: scaleX(1)
+            }
 
-        @media(max-width:440px) {
+            #mo9f .tab-ico {
+                font-size: 22px
+            }
 
-            #mo9f .step-n,
-            #mo9f .step-l {
+            #mo9f .tab-l {
+                font-size: 13px;
+                font-weight: 600;
+                color: #1C2B1E;
+                transition: color .25s
+            }
+
+            #mo9f .tab-s {
+                font-size: 11px;
+                color: #7A7A6E;
+                transition: color .25s
+            }
+
+            #mo9f .tab.on .tab-l {
+                color: #fff
+            }
+
+            #mo9f .tab.on .tab-s {
+                color: rgba(255, 255, 255, .5)
+            }
+
+            /* ============================================================
+   PANELS
+   ============================================================ */
+            #mo9f .panel {
                 display: none
             }
-        }
 
-        /* ============================================================
-     CARD
-     ============================================================ */
-        #mo9f .card {
-            background: #fff;
-            border: 1px solid #EAE7E0;
-            border-radius: 4px;
-            padding: 32px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, .04)
-        }
+            #mo9f .panel.on {
+                display: block
+            }
 
-        #mo9f .card-t {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #1C2B1E;
-            margin-bottom: 4px
-        }
+            /* ============================================================
+   STEPS — MODIFIÉ : 2 étapes au lieu de 3
+   ============================================================ */
+            #mo9f .steps {
+                display: flex;
+                align-items: center;
+                background: #fff;
+                border: 1px solid #EAE7E0;
+                border-radius: 4px;
+                padding: 16px 20px;
+                margin-bottom: 28px;
+                box-shadow: 0 1px 6px rgba(0, 0, 0, .04);
+            }
 
-        #mo9f .card-s {
-            font-size: 12px;
-            color: #7A7A6E;
-            margin-bottom: 24px;
-            line-height: 1.6
-        }
+            #mo9f .step {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                flex: 1;
+                min-width: 0
+            }
 
-        /* ============================================================
-     FORM
-     ============================================================ */
-        #mo9f .fg2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px
-        }
+            #mo9f .dot {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: #EAE7E0;
+                color: #7A7A6E;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: 700;
+                flex-shrink: 0;
+                border: 1.5px solid transparent;
+                transition: all .3s;
+            }
 
-        @media(max-width:520px) {
+            #mo9f .step-n {
+                font-size: 9px;
+                color: #7A7A6E;
+                letter-spacing: .5px;
+                font-weight: 600;
+                text-transform: uppercase
+            }
+
+            #mo9f .step-l {
+                font-size: 12px;
+                font-weight: 600;
+                color: #7A7A6E
+            }
+
+            #mo9f .step.on .dot {
+                background: #1C2B1E;
+                color: #fff;
+                border-color: #1C2B1E;
+                box-shadow: 0 0 0 3px rgba(28, 43, 30, .12)
+            }
+
+            #mo9f .step.on .step-n,
+            #mo9f .step.on .step-l {
+                color: #1C2B1E
+            }
+
+            #mo9f .step.done .dot {
+                background: #C9991A;
+                color: #1C2B1E;
+                border-color: #C9991A
+            }
+
+            #mo9f .step.done .step-n,
+            #mo9f .step.done .step-l {
+                color: #C9991A
+            }
+
+            #mo9f .sln {
+                flex: 1;
+                height: 1px;
+                background: #EAE7E0;
+                margin: 0 8px;
+                transition: background .3s;
+                min-width: 12px
+            }
+
+            #mo9f .sln.done {
+                background: #C9991A
+            }
+
+            @media(max-width:440px) {
+
+                #mo9f .step-n,
+                #mo9f .step-l {
+                    display: none
+                }
+            }
+
+            /* ============================================================
+   CARD
+   ============================================================ */
+            #mo9f .card {
+                background: #fff;
+                border: 1px solid #EAE7E0;
+                border-radius: 4px;
+                padding: 32px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, .04)
+            }
+
+            #mo9f .card-t {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 22px;
+                font-weight: 700;
+                color: #1C2B1E;
+                margin-bottom: 4px
+            }
+
+            #mo9f .card-s {
+                font-size: 12px;
+                color: #7A7A6E;
+                margin-bottom: 24px;
+                line-height: 1.6
+            }
+
+            /* ============================================================
+   FORM
+   ============================================================ */
             #mo9f .fg2 {
-                grid-template-columns: 1fr
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px
             }
-        }
 
-        #mo9f .fg {
-            display: flex;
-            flex-direction: column;
-            gap: 5px
-        }
+            @media(max-width:520px) {
+                #mo9f .fg2 {
+                    grid-template-columns: 1fr
+                }
+            }
 
-        #mo9f .fg.full {
-            grid-column: 1/-1
-        }
+            #mo9f .fg {
+                display: flex;
+                flex-direction: column;
+                gap: 5px
+            }
 
-        #mo9f .fg label {
-            font-size: 10px;
-            font-weight: 600;
-            color: #1C2B1E;
-            letter-spacing: 1px;
-            text-transform: uppercase
-        }
+            #mo9f .fg.full {
+                grid-column: 1/-1
+            }
 
-        #mo9f .hint {
-            font-size: 11px;
-            color: #7A7A6E;
-            margin-top: 2px
-        }
+            #mo9f .fg label {
+                font-size: 10px;
+                font-weight: 600;
+                color: #1C2B1E;
+                letter-spacing: 1px;
+                text-transform: uppercase
+            }
 
-        #mo9f .ferr {
-            font-size: 11px;
-            color: #C0392B;
-            margin-top: 3px;
-            font-weight: 500;
-            display: none
-        }
+            #mo9f .hint {
+                font-size: 11px;
+                color: #7A7A6E;
+                margin-top: 2px
+            }
 
-        #mo9f .ferr.on {
-            display: block
-        }
+            #mo9f .ferr {
+                font-size: 11px;
+                color: #C0392B;
+                margin-top: 3px;
+                font-weight: 500;
+                display: none
+            }
 
-        #mo9f input[type=text],
-        #mo9f input[type=tel],
-        #mo9f input[type=email],
-        #mo9f input[type=password],
-        #mo9f select,
-        #mo9f textarea {
-            padding: 11px 13px;
-            border: 1px solid #D8D5CE;
-            border-radius: 3px;
-            font-size: 14px;
-            color: #1C2B1E;
-            background: #FDFCFA;
-            width: 100%;
-            font-family: Inter, Arial, sans-serif;
-            transition: border-color .2s, box-shadow .2s;
-            -webkit-appearance: none;
-        }
+            #mo9f .ferr.on {
+                display: block
+            }
 
-        #mo9f input[type=text]:focus,
-        #mo9f input[type=tel]:focus,
-        #mo9f input[type=email]:focus,
-        #mo9f input[type=password]:focus,
-        #mo9f select:focus,
-        #mo9f textarea:focus {
-            outline: none;
-            border-color: #2D6A4F;
-            box-shadow: 0 0 0 3px rgba(45, 106, 79, .1);
-            background: #fff;
-        }
+            #mo9f input[type=text],
+            #mo9f input[type=tel],
+            #mo9f input[type=email],
+            #mo9f input[type=password],
+            #mo9f select,
+            #mo9f textarea {
+                padding: 11px 13px;
+                border: 1px solid #D8D5CE;
+                border-radius: 3px;
+                font-size: 14px;
+                color: #1C2B1E;
+                background: #FDFCFA;
+                width: 100%;
+                font-family: Inter, Arial, sans-serif;
+                transition: border-color .2s, box-shadow .2s;
+                -webkit-appearance: none;
+            }
 
-        #mo9f input.bad,
-        #mo9f select.bad {
-            border-color: #C0392B !important;
-            background: #FDF5F5 !important
-        }
+            #mo9f input[type=text]:focus,
+            #mo9f input[type=tel]:focus,
+            #mo9f input[type=email]:focus,
+            #mo9f input[type=password]:focus,
+            #mo9f select:focus,
+            #mo9f textarea:focus {
+                outline: none;
+                border-color: #2D6A4F;
+                box-shadow: 0 0 0 3px rgba(45, 106, 79, .1);
+                background: #fff;
+            }
 
-        #mo9f select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A7A6E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-color: #FDFCFA;
-            padding-right: 36px;
-            cursor: pointer;
-        }
+            #mo9f input.bad,
+            #mo9f select.bad {
+                border-color: #C0392B !important;
+                background: #FDF5F5 !important
+            }
 
-        #mo9f[dir='rtl'] select {
-            background-position: left 12px center;
-            padding-right: 13px;
-            padding-left: 36px
-        }
+            #mo9f select {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237A7A6E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 12px center;
+                background-color: #FDFCFA;
+                padding-right: 36px;
+                cursor: pointer;
+            }
 
-        #mo9f textarea {
-            resize: vertical;
-            min-height: 90px
-        }
+            #mo9f[dir='rtl'] select {
+                background-position: left 12px center;
+                padding-right: 13px;
+                padding-left: 36px
+            }
 
-        /* ============================================================
-     BOUTONS
-     ============================================================ */
-        #mo9f .btn {
-            display: block;
-            width: 100%;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 3px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: Inter, Arial, sans-serif;
-            margin-top: 20px;
-            transition: all .22s;
-            letter-spacing: .3px;
-            text-align: center;
-            -webkit-appearance: none;
-        }
+            #mo9f textarea {
+                resize: vertical;
+                min-height: 90px
+            }
 
-        #mo9f .btn-dk {
-            background: #1C2B1E;
-            color: #fff
-        }
+            /* ============================================================
+   BOUTONS
+   ============================================================ */
+            #mo9f .btn {
+                display: block;
+                width: 100%;
+                padding: 14px 20px;
+                border: none;
+                border-radius: 3px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                font-family: Inter, Arial, sans-serif;
+                margin-top: 20px;
+                transition: all .22s;
+                letter-spacing: .3px;
+                text-align: center;
+                -webkit-appearance: none;
+            }
 
-        #mo9f .btn-dk:hover {
-            background: #263828;
-            color: #fff
-        }
+            #mo9f .btn-dk {
+                background: #1C2B1E;
+                color: #fff
+            }
 
-        #mo9f .btn-gl {
-            background: #C9991A;
-            color: #1C2B1E
-        }
+            #mo9f .btn-dk:hover {
+                background: #263828;
+                color: #fff
+            }
 
-        #mo9f .btn-gl:hover {
-            background: #b8880f;
-            color: #1C2B1E
-        }
+            #mo9f .btn-gl {
+                background: #C9991A;
+                color: #1C2B1E
+            }
 
-        #mo9f .btn:disabled {
-            opacity: .55;
-            cursor: not-allowed
-        }
+            #mo9f .btn-gl:hover {
+                background: #b8880f;
+                color: #1C2B1E
+            }
 
-        /* ============================================================
-     MESSAGES
-     ============================================================ */
-        #mo9f .msg {
-            padding: 11px 14px;
-            border-radius: 3px;
-            font-size: 13px;
-            margin-bottom: 16px;
-            font-weight: 500;
-            display: none;
-            line-height: 1.5
-        }
+            #mo9f .btn:disabled {
+                opacity: .55;
+                cursor: not-allowed
+            }
 
-        #mo9f .msg.err {
-            background: #FEF2F2;
-            color: #922B21;
-            border: 1px solid #F5C6C6;
-            display: block
-        }
+            /* ============================================================
+   MESSAGES
+   ============================================================ */
+            #mo9f .msg {
+                padding: 11px 14px;
+                border-radius: 3px;
+                font-size: 13px;
+                margin-bottom: 16px;
+                font-weight: 500;
+                display: none;
+                line-height: 1.5
+            }
 
-        #mo9f .msg.ok {
-            background: #F0FDF4;
-            color: #166534;
-            border: 1px solid #BBF7D0;
-            display: block
-        }
+            #mo9f .msg.err {
+                background: #FEF2F2;
+                color: #922B21;
+                border: 1px solid #F5C6C6;
+                display: block
+            }
 
-        /* ============================================================
-     PROFIL
-     ============================================================ */
-        #mo9f .pav-top {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #EAE7E0
-        }
+            #mo9f .msg.ok {
+                background: #F0FDF4;
+                color: #166534;
+                border: 1px solid #BBF7D0;
+                display: block
+            }
 
-        #mo9f .pav-av {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #1C2B1E;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #fff;
-            flex-shrink: 0
-        }
+            /* ============================================================
+   PROFIL
+   ============================================================ */
+            #mo9f .pav-top {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #EAE7E0
+            }
 
-        #mo9f .pav-name {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #1C2B1E;
-            line-height: 1.2
-        }
+            #mo9f .pav-av {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: #1C2B1E;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 22px;
+                font-weight: 700;
+                color: #fff;
+                flex-shrink: 0
+            }
 
-        #mo9f .pav-ok {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 10px;
-            font-weight: 600;
-            color: #166534;
-            background: #D1FAE5;
-            padding: 3px 9px;
-            border-radius: 20px;
-            margin-top: 4px
-        }
+            #mo9f .pav-name {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 22px;
+                font-weight: 700;
+                color: #1C2B1E;
+                line-height: 1.2
+            }
 
-        #mo9f .pav-id {
-            font-size: 11px;
-            color: #C9991A;
-            font-weight: 600;
-            margin-top: 3px
-        }
+            #mo9f .pav-ok {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 10px;
+                font-weight: 600;
+                color: #166534;
+                background: #D1FAE5;
+                padding: 3px 9px;
+                border-radius: 20px;
+                margin-top: 4px
+            }
 
-        #mo9f .pav-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px
-        }
+            #mo9f .pav-id {
+                font-size: 11px;
+                color: #C9991A;
+                font-weight: 600;
+                margin-top: 3px
+            }
 
-        @media(max-width:440px) {
             #mo9f .pav-grid {
-                grid-column: 1fr
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px
             }
-        }
 
-        #mo9f .pav-item {
-            background: #F7F4EF;
-            border: 1px solid #EAE7E0;
-            border-radius: 3px;
-            padding: 12px 14px
-        }
+            @media(max-width:440px) {
+                #mo9f .pav-grid {
+                    grid-column: 1fr
+                }
+            }
 
-        #mo9f .pav-item .pk {
-            font-size: 9px;
-            font-weight: 700;
-            color: #7A7A6E;
-            text-transform: uppercase;
-            letter-spacing: .8px;
-            margin-bottom: 3px
-        }
+            #mo9f .pav-item {
+                background: #F7F4EF;
+                border: 1px solid #EAE7E0;
+                border-radius: 3px;
+                padding: 12px 14px
+            }
 
-        #mo9f .pav-item .pv {
-            font-size: 13px;
-            font-weight: 600;
-            color: #1C2B1E;
-            word-break: break-all
-        }
+            #mo9f .pav-item .pk {
+                font-size: 9px;
+                font-weight: 700;
+                color: #7A7A6E;
+                text-transform: uppercase;
+                letter-spacing: .8px;
+                margin-bottom: 3px
+            }
 
-        #mo9f .pav-item.s2 {
-            grid-column: 1/-1
-        }
+            #mo9f .pav-item .pv {
+                font-size: 13px;
+                font-weight: 600;
+                color: #1C2B1E;
+                word-break: break-all
+            }
 
-        #mo9f .pav-note {
-            background: #EAE7E0;
-            border-radius: 3px;
-            padding: 14px 16px;
-            margin-top: 12px;
-            font-size: 13px;
-            color: #7A7A6E;
-            line-height: 1.7
-        }
+            #mo9f .pav-item.s2 {
+                grid-column: 1/-1
+            }
 
-        /* ============================================================
-     DEMANDE
-     ============================================================ */
-        #mo9f .dem {
-            background: #F7F4EF;
-            border: 1px solid #EAE7E0;
-            border-radius: 4px;
-            padding: 28px;
-            margin-top: 16px
-        }
+            #mo9f .pav-note {
+                background: #EAE7E0;
+                border-radius: 3px;
+                padding: 14px 16px;
+                margin-top: 12px;
+                font-size: 13px;
+                color: #7A7A6E;
+                line-height: 1.7
+            }
 
-        #mo9f .dem-t {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 19px;
-            font-weight: 700;
-            color: #1C2B1E;
-            margin-bottom: 3px
-        }
+            /* ============================================================
+   DEMANDE
+   ============================================================ */
+            #mo9f .dem {
+                background: #F7F4EF;
+                border: 1px solid #EAE7E0;
+                border-radius: 4px;
+                padding: 28px;
+                margin-top: 16px
+            }
 
-        #mo9f .dem-s {
-            font-size: 12px;
-            color: #7A7A6E;
-            margin-bottom: 20px
-        }
+            #mo9f .dem-t {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 19px;
+                font-weight: 700;
+                color: #1C2B1E;
+                margin-bottom: 3px
+            }
 
-        /* ============================================================
-     MERCI
-     ============================================================ */
-        #mo9f .merci {
-            background: #fff;
-            border: 2px solid #C9991A;
-            border-radius: 4px;
-            padding: 40px 28px;
-            text-align: center;
-            margin-top: 20px;
-            display: none
-        }
+            #mo9f .dem-s {
+                font-size: 12px;
+                color: #7A7A6E;
+                margin-bottom: 20px
+            }
 
-        #mo9f .merci.on {
-            display: block
-        }
+            /* ============================================================
+   MERCI
+   ============================================================ */
+            #mo9f .merci {
+                background: #fff;
+                border: 2px solid #C9991A;
+                border-radius: 4px;
+                padding: 40px 28px;
+                text-align: center;
+                margin-top: 20px;
+                display: none
+            }
 
-        #mo9f .merci-ico {
-            font-size: 52px;
-            margin-bottom: 16px
-        }
+            #mo9f .merci.on {
+                display: block
+            }
 
-        #mo9f .merci-title {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #1C2B1E;
-            margin-bottom: 12px
-        }
+            #mo9f .merci-ico {
+                font-size: 52px;
+                margin-bottom: 16px
+            }
 
-        #mo9f .merci-txt {
-            font-size: 14px;
-            color: #7A7A6E;
-            line-height: 1.85;
-            max-width: 420px;
-            margin: 0 auto
-        }
+            #mo9f .merci-title {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 28px;
+                font-weight: 700;
+                color: #1C2B1E;
+                margin-bottom: 12px
+            }
 
-        #mo9f .merci-id {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            color: #C9991A;
-            background: #1C2B1E;
-            padding: 7px 18px;
-            border-radius: 2px;
-            letter-spacing: 2px
-        }
+            #mo9f .merci-txt {
+                font-size: 14px;
+                color: #7A7A6E;
+                line-height: 1.85;
+                max-width: 420px;
+                margin: 0 auto
+            }
 
-        /* ============================================================
-     CONNEXION
-     ============================================================ */
-        #mo9f .conn-w {
-            max-width: 420px;
-            margin: 0 auto
-        }
+            #mo9f .merci-id {
+                display: inline-block;
+                margin-top: 20px;
+                font-size: 12px;
+                font-weight: 700;
+                color: #C9991A;
+                background: #1C2B1E;
+                padding: 7px 18px;
+                border-radius: 2px;
+                letter-spacing: 2px
+            }
 
-        /* ============================================================
-     CONTACT BAND
-     ============================================================ */
-        #mo9f .cband {
-            background: #fff;
-            border: 1px solid #EAE7E0;
-            border-radius: 4px;
-            padding: 20px 28px;
-            margin-top: 40px
-        }
+            /* ============================================================
+   CONNEXION
+   ============================================================ */
+            #mo9f .conn-w {
+                max-width: 420px;
+                margin: 0 auto
+            }
 
-        #mo9f .cband-lbl {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #7A7A6E;
-            margin-bottom: 4px
-        }
+            /* ============================================================
+   CONTACT BAND
+   ============================================================ */
+            #mo9f .cband {
+                background: #fff;
+                border: 1px solid #EAE7E0;
+                border-radius: 4px;
+                padding: 20px 28px;
+                margin-top: 40px
+            }
 
-        #mo9f .cband-val {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1C2B1E
-        }
+            #mo9f .cband-lbl {
+                font-size: 9px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #7A7A6E;
+                margin-bottom: 4px
+            }
 
-        #mo9f .cband-val a {
-            color: #2D6A4F;
-            text-decoration: none
-        }
+            #mo9f .cband-val'><a href=' mailto:mofdigital1@gmail.com'>mofdigital1@gmail.com</a></div>
 
-        #mo9f .cband-val a:hover {
-            text-decoration: underline
-        }
 
-        /* ============================================================
-     FOOTER
-     ============================================================ */
-        #mo9f .footer {
-            background: #1C2B1E;
-            padding: 52px 24px 36px
-        }
+            /* ============================================================
+   FOOTER
+   ============================================================ */
+            #mo9f .footer {
+                background: #1C2B1E;
+                padding: 52px 24px 36px
+            }
 
-        #mo9f .footer-in {
-            max-width: 760px;
-            margin: 0 auto;
-            text-align: center
-        }
+            #mo9f .footer-in {
+                max-width: 760px;
+                margin: 0 auto;
+                text-align: center
+            }
 
-        #mo9f .footer-logo {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 3px
-        }
+            #mo9f .footer-logo {
+                font-family: 'Cormorant Garamond', Georgia, serif;
+                font-size: 22px;
+                font-weight: 700;
+                color: #fff;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                margin-bottom: 3px
+            }
 
-        #mo9f .footer-logo b {
-            color: #C9991A
-        }
+            #mo9f .footer-logo b {
+                color: #C9991A
+            }
 
-        #mo9f .footer-tag {
-            font-size: 11px;
-            color: rgba(255, 255, 255, .3);
-            letter-spacing: 2px;
-            margin-bottom: 6px
-        }
+            #mo9f .footer-tag {
+                font-size: 11px;
+                color: rgba(255, 255, 255, .3);
+                letter-spacing: 2px;
+                margin-bottom: 6px
+            }
 
-        #mo9f .footer-info {
-            font-size: 12px;
-            color: rgba(255, 255, 255, .25);
-            margin-bottom: 28px;
-            line-height: 1.8
-        }
+            #mo9f .footer-info {
+                font-size: 12px;
+                color: rgba(255, 255, 255, .25);
+                margin-bottom: 28px;
+                line-height: 1.8
+            }
 
-        #mo9f .footer-div {
-            height: 1px;
-            background: rgba(255, 255, 255, .06);
-            margin: 24px 0
-        }
+            #mo9f .footer-div {
+                height: 1px;
+                background: rgba(255, 255, 255, .06);
+                margin: 24px 0
+            }
 
-        #mo9f .footer-tl {
-            font-size: 9px;
-            font-weight: 600;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .3);
-            margin-bottom: 14px
-        }
+            #mo9f .footer-tl {
+                font-size: 9px;
+                font-weight: 600;
+                letter-spacing: 2.5px;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, .3);
+                margin-bottom: 14px
+            }
 
-        #mo9f .footer-names {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-            margin-bottom: 16px
-        }
+            #mo9f .footer-names {
+                display: flex;
+                justify-content: center;
+                gap: 14px;
+                flex-wrap: wrap;
+                margin-bottom: 16px
+            }
 
-        #mo9f .footer-nm {
-            border: 1px solid rgba(201, 153, 26, .2);
-            border-radius: 3px;
-            padding: 12px 24px;
-            text-align: center
-        }
+            #mo9f .footer-nm {
+                border: 1px solid rgba(201, 153, 26, .2);
+                border-radius: 3px;
+                padding: 12px 24px;
+                text-align: center
+            }
 
-        #mo9f .footer-nm .role {
-            font-size: 9px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #C9991A;
-            margin-bottom: 4px
-        }
+            #mo9f .footer-nm .role {
+                font-size: 9px;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: #C9991A;
+                margin-bottom: 4px
+            }
 
-        #mo9f .footer-nm .nval {
-            font-size: 13px;
-            font-weight: 600;
-            color: #fff
-        }
+            #mo9f .footer-nm .nval {
+                font-size: 13px;
+                font-weight: 600;
+                color: #fff
+            }
 
-        #mo9f .footer-email {
-            font-size: 13px;
-            color: rgba(255, 255, 255, .4);
-            margin-bottom: 6px
-        }
+            #mo9f .footer-email {
+                font-size: 13px;
+                color: rgba(255, 255, 255, .4);
+                margin-bottom: 6px
+            }
 
-        #mo9f .footer-email a {
-            color: #C9991A;
-            text-decoration: none;
-            font-weight: 600
-        }
+            #mo9f .footer-email a {
+                color: #C9991A;
+                text-decoration: none;
+                font-weight: 600
+            }
 
-        #mo9f .footer-copy {
-            font-size: 10px;
-            color: rgba(255, 255, 255, .18);
-            margin-top: 20px
-        }
-    </style>
-</head>
-
-<body>
-
-    <div id='mo9f' dir='ltr'>
+            #mo9f .footer-copy {
+                font-size: 10px;
+                color: rgba(255, 255, 255, .18);
+                margin-top: 20px
+            }
+        </style>
 
         <nav class='nav'>
             <div class='nav-logo'>MO9F <b>DIGITAL</b></div>
@@ -1061,6 +1039,7 @@
             </div>
 
             <div class='panel on' id='panel_ins'>
+
                 <div class='steps'>
                     <div class='step on' id='st1'>
                         <div class='dot'>1</div>
@@ -1075,14 +1054,6 @@
                         <div>
                             <div class='step-n' id='d_s2n'>Etape 2</div>
                             <div class='step-l' id='d_s2l'>Ma demande</div>
-                        </div>
-                    </div>
-                    <div class='sln' id='sln2'></div>
-                    <div class='step' id='st3'>
-                        <div class='dot'>3</div>
-                        <div>
-                            <div class='step-n' id='d_s3n'>Etape 3</div>
-                            <div class='step-l' id='d_s3l'>Confirmation</div>
                         </div>
                     </div>
                 </div>
@@ -1171,7 +1142,7 @@
                             pour organiser la main-d&apos;œuvre dans la région <strong>Souss-Massa</strong>.</div>
                     </div>
 
-                    <div class='dem'>
+                    <div class='dem' id='dem_form_box'>
                         <div class='dem-t' id='d_demt'>Votre besoin en main-d&apos;œuvre</div>
                         <p class='dem-s' id='d_dems'>Décrivez votre demande, elle sera transmise directement à notre
                             équipe.</p>
@@ -1223,17 +1194,17 @@
                         <button class='btn btn-gl' type='button' id='btn_dem' onclick='qEnvoyer()'>Envoyer ma demande
                             &#8594;</button>
                     </div>
+
+                    <div class='merci' id='merci_box'>
+                        <div class='merci-ico'>&#127807;</div>
+                        <div class='merci-title' id='d_merci_t'>Merci pour votre confiance !</div>
+                        <p class='merci-txt' id='d_merci_txt'>Notre équipe va vous contacter dans les plus brefs délais
+                            sur votre WhatsApp pour organiser votre main-d&apos;œuvre dans la région Souss-Massa.</p>
+                        <div class='merci-id' id='merci_id'>#MD-0000</div>
+                    </div>
                 </div>
 
-                <div class='merci' id='merci_box'>
-                    <div class='merci-ico'>&#127807;</div>
-                    <div class='merci-title' id='d_merci_t'>Merci pour votre confiance !</div>
-                    <p class='merci-txt' id='d_merci_txt'>Notre équipe va vous contacter dans les plus brefs délais sur
-                        votre WhatsApp pour organiser votre main-d&apos;œuvre dans la région Souss-Massa.</p>
-                    <div class='merci-id' id='merci_id'>#MD-0000</div>
-                </div>
             </div>
-
             <div class='panel' id='panel_conn'>
                 <div class='card conn-w'>
                     <div class='card-t' id='d_conn_t'>Connexion à votre espace</div>
@@ -1263,8 +1234,8 @@
                 <div class='cband-lbl' id='d_clbl'>Contact &amp; Collaboration</div>
                 <div class='cband-val'><a href='mailto:mofdigital1@gmail.com'>mofdigital1@gmail.com</a></div>
             </div>
-        </div>
 
+        </div>
         <div class='footer'>
             <div class='footer-in'>
                 <div class='footer-logo'>MO9F <b>DIGITAL</b></div>
@@ -1289,8 +1260,24 @@
         </div>
 
     </div>
-
     <script type='text/javascript'>
+        //<![CDATA[
+
+        /* ============================================================
+           FIX BLOGGER : déplacer #mo9f directement sous <body>
+           ============================================================ */
+        (function () {
+            try {
+                var el = document.getElementById('mo9f');
+                if (el && el.parentNode !== document.body) {
+                    document.body.appendChild(el);
+                }
+            } catch (e) { }
+        })();
+
+        /* ============================================================
+           TRADUCTIONS (3 Langues Complètes)
+           ============================================================ */
         var LANG = 'fr';
         var QUD = {};
 
@@ -1306,7 +1293,7 @@
                 sec_desc: "S'identifier ou créer un compte pour accéder à votre espace.",
                 tab_ins: 'Inscription', tab_ins_s: 'Créer un compte',
                 tab_conn: 'Connexion', tab_conn_s: 'Déjà inscrit(e)',
-                s1n: 'Etape 1', s1l: 'Coordonnées', s2n: 'Etape 2', s2l: 'Ma demande', s3n: 'Etape 3', s3l: 'Confirmation',
+                s1n: 'Etape 1', s1l: 'Coordonnées', s2n: 'Etape 2', s2l: 'Ma demande',
                 f1t: 'Vos coordonnées', f1s: 'Tous les champs marqués * sont obligatoires.',
                 lnom: 'Nom *', lprenom: 'Prénom *', lemail: 'Email *', ltel: 'Téléphone WhatsApp *',
                 lprov: 'Province *', lmet: 'Métier *', lautre: 'Précisez votre métier *', met_autre: 'Autre',
@@ -1346,7 +1333,7 @@
                 sec_desc: 'تسجيل الدخول أو إنشاء حساب للوصول إلى فضائك.',
                 tab_ins: 'تسجيل', tab_ins_s: 'إنشاء حساب',
                 tab_conn: 'دخول', tab_conn_s: 'لديك حساب بالفعل',
-                s1n: 'الخطوة 1', s1l: 'معلوماتك', s2n: 'الخطوة 2', s2l: 'طلبي', s3n: 'الخطوة 3', s3l: 'تأكيد',
+                s1n: 'الخطوة 1', s1l: 'معلوماتك', s2n: 'الخطوة 2', s2l: 'طلبي',
                 f1t: 'معلوماتك', f1s: 'جميع الحقول المعلّمة بـ * إلزامية.',
                 lnom: 'الاسم العائلي *', lprenom: 'الاسم الشخصي *', lemail: 'البريد الإلكتروني *', ltel: 'رقم الواتساب *',
                 lprov: 'الإقليم *', lmet: 'المهنة *', lautre: 'وضّح مهنتك *', met_autre: 'أخرى',
@@ -1386,7 +1373,7 @@
                 sec_desc: 'Log in or create an account to access your space.',
                 tab_ins: 'Register', tab_ins_s: 'Create an account',
                 tab_conn: 'Login', tab_conn_s: 'Already registered',
-                s1n: 'Step 1', s1l: 'Your details', s2n: 'Step 2', s2l: 'My request', s3n: 'Step 3', s3l: 'Confirmation',
+                s1n: 'Step 1', s1l: 'Your details', s2n: 'Step 2', s2l: 'My request',
                 f1t: 'Your details', f1s: 'All fields marked * are required.',
                 lnom: 'Last name *', lprenom: 'First name *', lemail: 'Email *', ltel: 'WhatsApp number *',
                 lprov: 'Province *', lmet: 'Occupation *', lautre: 'Specify your occupation *', met_autre: 'Other',
@@ -1417,6 +1404,7 @@
             }
         };
 
+        /* ── helper ── */
         function qT(k) { return (TX[LANG] && TX[LANG][k]) ? TX[LANG][k] : (TX['fr'][k] || ''); }
         function qG(id) { return document.getElementById(id); }
         function qGV(id) { var e = qG(id); return e ? e.value.trim() : ''; }
@@ -1425,6 +1413,7 @@
         function qHide(id) { var e = qG(id); if (e) e.className = 'msg'; }
         function qScroll() { try { qG('mo9f').scrollTo({ top: 0, behavior: 'smooth' }); } catch (ex) { } }
 
+        /* ── LANGUE (Adapter bars & inputs text auto) ── */
         function qSetLang(l) {
             LANG = l;
             var bs = document.querySelectorAll('#mo9f .lb');
@@ -1432,15 +1421,17 @@
             if (l === 'fr') bs[0].classList.add('act');
             if (l === 'ar') bs[1].classList.add('act');
             if (l === 'en') bs[2].classList.add('act');
+
             qG('mo9f').setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
             var t = TX[l]; if (!t) return;
+
             var M = {
                 d_hero_sub: 'hero_sub', d_hero_title: 'hero_title', d_hero_sub2: 'hero_sub2',
                 d_miss_lbl: 'miss_lbl', d_miss_txt: 'miss_txt', d_pill: 'pill',
                 d_sec_sub: 'sec_sub', d_sec_desc: 'sec_desc',
                 d_tab_ins: 'tab_ins', d_tab_ins_s: 'tab_ins_s',
                 d_tab_conn: 'tab_conn', d_tab_conn_s: 'tab_conn_s',
-                d_s1n: 's1n', d_s1l: 's1l', d_s2n: 's2n', d_s2l: 's2l', d_s3n: 's3n', d_s3l: 's3l',
+                d_s1n: 's1n', d_s1l: 's1l', d_s2n: 's2n', d_s2l: 's2l',
                 d_f1t: 'f1t', d_f1s: 'f1s',
                 d_lnom: 'lnom', d_lprenom: 'lprenom', d_lemail: 'lemail', d_ltel: 'ltel',
                 d_lprov: 'lprov', d_lmet: 'lmet', d_lautre: 'lautre', d_met_autre: 'met_autre',
@@ -1457,6 +1448,7 @@
             for (var id in M) { qSet(id, t[M[id]]); }
         }
 
+        /* ── TABS ── */
         function qTab(w) {
             qG('panel_ins').classList.remove('on');
             qG('panel_conn').classList.remove('on');
@@ -1467,6 +1459,7 @@
             qScroll();
         }
 
+        /* ── VALIDATION TEL ── */
         function qVT() {
             var v = qG('p_tel').value.replace(/\D/g, '');
             var ok = /^[0-9]{10}$/.test(v);
@@ -1480,6 +1473,23 @@
             if (v !== 'autre') qG('p_autre').value = '';
         }
 
+        /* ── RENDER DYNAMIC PROFILE CARD ── */
+        function qRenderProfil(d) {
+            qG('e2_av').textContent = d.prenom.charAt(0).toUpperCase();
+            qG('e2_name').textContent = d.prenom + ' ' + d.nom;
+            qG('e2_id').textContent = d.id;
+            qG('merci_id').textContent = d.id;
+            qG('d_note_wa').innerHTML = qT('note_wa');
+            qG('e2_grid').innerHTML =
+                '<div class="pav-item"><div class="pk">' + qT('lnom').replace(' *', '') + '</div><div class="pv">' + d.nom + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lprenom').replace(' *', '') + '</div><div class="pv">' + d.prenom + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lemail').replace(' *', '') + '</div><div class="pv">' + d.email + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('ltel').replace(' *', '') + '</div><div class="pv">' + d.tel + '</div></div>' +
+                '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + d.province + '</div></div>' +
+                '<div class="pav-item s2"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + d.metier + '</div></div>';
+        }
+
+        /* ── ÉTAPE 1 — INSCRIPTION ── */
         function qValider1() {
             var nom = qGV('p_nom');
             var prenom = qGV('p_prenom');
@@ -1491,43 +1501,26 @@
             var code = qGV('p_code');
 
             qHide('msg1');
-            ['ferr_email', 'ferr_tel', 'ferr_prov', 'ferr_met'].forEach(function (id) {
-                qG(id).className = 'ferr';
-            });
-            ['p_tel', 'p_prov', 'p_met'].forEach(function (id) {
-                qG(id).className = '';
-            });
+            ['ferr_email', 'ferr_tel', 'ferr_prov', 'ferr_met'].forEach(function (id) { qG(id).className = 'ferr'; });
+            ['p_tel', 'p_prov', 'p_met'].forEach(function (id) { qG(id).className = ''; });
 
             var miss = [];
             if (!nom) miss.push(qT('lnom').replace(' *', ''));
             if (!prenom) miss.push(qT('lprenom').replace(' *', ''));
             if (!email) miss.push(qT('lemail').replace(' *', ''));
             if (!tel) miss.push(qT('ltel').replace(' *', ''));
-            if (!prov) {
-                miss.push(qT('lprov').replace(' *', ''));
-                qG('ferr_prov').className = 'ferr on';
-                qG('p_prov').className = 'bad';
-            }
-            if (!met) {
-                miss.push(qT('lmet').replace(' *', ''));
-                qG('ferr_met').className = 'ferr on';
-                qG('p_met').className = 'bad';
-            }
+            if (!prov) { miss.push(qT('lprov').replace(' *', '')); qG('ferr_prov').className = 'ferr on'; qG('p_prov').className = 'bad'; }
+            if (!met) { miss.push(qT('lmet').replace(' *', '')); qG('ferr_met').className = 'ferr on'; qG('p_met').className = 'bad'; }
             if (!code) miss.push(qT('lcode').replace(' *', ''));
 
             if (miss.length > 0) {
-                qMsg('msg1', qT('e_req') + miss.join(', ') + '.', 'err');
-                return;
+                qMsg('msg1', qT('e_req') + miss.join(', ') + '.', 'err'); return;
             }
-
             if (email.indexOf('@') < 1 || email.lastIndexOf('.') < email.indexOf('@') + 2) {
-                qMsg('msg1', qT('e_email'), 'err');
-                qG('ferr_email').className = 'ferr on'; return;
+                qMsg('msg1', qT('e_email'), 'err'); qG('ferr_email').className = 'ferr on'; return;
             }
             if (!/^[0-9]{10}$/.test(tel)) {
-                qMsg('msg1', qT('e_tel'), 'err');
-                qG('ferr_tel').className = 'ferr on';
-                qG('p_tel').className = 'bad'; return;
+                qMsg('msg1', qT('e_tel'), 'err'); qG('ferr_tel').className = 'ferr on'; qG('p_tel').className = 'bad'; return;
             }
             if (met === 'autre' && !autre) {
                 qMsg('msg1', qT('e_met'), 'err'); return;
@@ -1545,23 +1538,14 @@
 
             try { localStorage.setItem('mo9f_' + email.toLowerCase(), JSON.stringify(QUD)); } catch (e) { }
 
+            /* Redirection direct l Étape 2 (Pas de confirmation intermediate) */
             qG('e1').style.display = 'none';
             qG('e2').style.display = 'block';
             qG('st1').className = 'step done';
             qG('st2').className = 'step on';
             qG('sln1').className = 'sln done';
-            qG('e2_av').textContent = QUD.prenom.charAt(0).toUpperCase();
-            qG('e2_name').textContent = QUD.prenom + ' ' + QUD.nom;
-            qG('e2_id').textContent = QUD.id;
-            qG('merci_id').textContent = QUD.id;
-            qG('d_note_wa').innerHTML = qT('note_wa');
-            qG('e2_grid').innerHTML =
-                '<div class="pav-item"><div class="pk">' + qT('lnom').replace(' *', '') + '</div><div class="pv">' + QUD.nom + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('lprenom').replace(' *', '') + '</div><div class="pv">' + QUD.prenom + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('lemail').replace(' *', '') + '</div><div class="pv">' + QUD.email + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('ltel').replace(' *', '') + '</div><div class="pv">' + QUD.tel + '</div></div>' +
-                '<div class="pav-item"><div class="pk">' + qT('lprov').replace(' *', '') + '</div><div class="pv">' + QUD.province + '</div></div>' +
-                '<div class="pav-item s2"><div class="pk">' + qT('lmet').replace(' *', '') + '</div><div class="pv">' + QUD.metier + '</div></div>';
+
+            qRenderProfil(QUD);
             qScroll();
 
             qFS({
@@ -1577,6 +1561,7 @@
             setTimeout(function () { qWA('212657065239', wm); }, 1500);
         }
 
+        /* ── ÉTAPE 2 — ENVOI DEMANDE ── */
         function qEnvoyer() {
             var cult = qG('d_culture').value;
             var nb = qG('d_nb').value;
@@ -1591,77 +1576,3 @@
 
             var btn = qG('btn_dem');
             if (btn) { btn.disabled = true; btn.textContent = '...'; }
-
-            qFS({
-                'Nom': QUD.nom || '', 'Prenom': QUD.prenom || '', 'Telephone': QUD.tel || '',
-                'Province': QUD.province || '', 'Metier': QUD.metier || '',
-                'Culture': cult, 'Nb_ouvriers': nb, 'Date_debut': date, 'Duree': duree,
-                'Notes': notes || 'Aucune', 'ID': QUD.id || '',
-                '_subject': 'Demande main-oeuvre - ' + (QUD.prenom || '') + ' ' + (QUD.nom || '')
-            });
-
-            var wm2 = 'Demande main-oeuvre Mo9f Digital\nClient: ' + (QUD.prenom || '') + ' ' + (QUD.nom || '') +
-                '\nTel: ' + (QUD.tel || '') + '\nProvince: ' + (QUD.province || '') +
-                '\nCulture: ' + cult + '\nOuvriers: ' + nb + '\nDebut: ' + date +
-                '\nDuree: ' + duree + '\nNotes: ' + (notes || 'Aucune') + '\nID: ' + (QUD.id || '');
-            qWA('212656682654', wm2);
-            setTimeout(function () { qWA('212657065239', wm2); }, 1500);
-
-            qG('e2').style.display = 'none';
-            qG('st2').className = 'step done';
-            qG('st3').className = 'step on';
-            qG('sln2').className = 'sln done';
-            qSet('d_merci_t', qT('merci_t'));
-            qSet('d_merci_txt', qT('merci_txt'));
-            qG('merci_box').className = 'merci on';
-            qScroll();
-        }
-
-        function qValConn() {
-            var email = qGV('conn_email'), code = qGV('conn_code');
-            qHide('msg_conn');
-            qG('ferr_cemail').className = 'ferr';
-            qG('ferr_ccode').className = 'ferr';
-
-            if (!email || email.indexOf('@') < 1) {
-                qG('ferr_cemail').className = 'ferr on';
-                qMsg('msg_conn', qT('e_email'), 'err'); return;
-            }
-            if (!code || code.length < 4) {
-                qG('ferr_ccode').className = 'ferr on';
-                qMsg('msg_conn', qT('e_code'), 'err'); return;
-            }
-
-            if (QUD.email && email.toLowerCase() === QUD.email.toLowerCase() && code === QUD.code) {
-                qMsg('msg_conn', qT('ok_conn').replace('{name}', QUD.prenom), 'ok'); return;
-            }
-            var raw = null;
-            try { raw = localStorage.getItem('mo9f_' + email.toLowerCase()); } catch (e) { }
-            if (raw) {
-                var d = null;
-                try { d = JSON.parse(raw); } catch (e) { }
-                if (d && d.code === code) {
-                    qMsg('msg_conn', qT('ok_conn').replace('{name}', d.prenom), 'ok'); return;
-                }
-            }
-            qMsg('msg_conn', qT('e_conn'), 'err');
-        }
-
-        function qFS(data) {
-            try {
-                var fd = new FormData();
-                for (var k in data) fd.append(k, data[k]);
-                fetch('https://formspree.io/f/xeoqljpq', {
-                    method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-                }).catch(function () { });
-            } catch (e) { }
-        }
-
-        function qWA(num, msg) {
-            var img = new Image();
-            img.src = 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
-        }
-    </script>
-</body>
-
-</html>
