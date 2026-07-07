@@ -1271,8 +1271,6 @@
                         <div id='dash_badge'></div>
                     </div>
 
-                    <button class='btn btn-dk' type='button' onclick='qRefreshDash()' id='btn_dash_refresh'>Actualiser
-                        mon statut &#8635;</button>
                     <button class='btn btn-gl' type='button' onclick='qLogoutDash()' id='btn_dash_logout'>Se
                         déconnecter</button>
                 </div>
@@ -1505,7 +1503,6 @@
                 dash_sit_lbl: 'Situation',
                 dash_encours: 'En cours',
                 dash_valide: 'Demande Validée',
-                dash_refresh: 'Actualiser mon statut ↻',
                 dash_logout: 'Se déconnecter',
                 /* Admin */
                 admin_link: 'Espace administrateur',
@@ -1560,7 +1557,6 @@
                 dash_sit_lbl: 'الوضعية',
                 dash_encours: 'قيد المعالجة',
                 dash_valide: 'تم قبول الطلب',
-                dash_refresh: 'تحديث حالتي ↻',
                 dash_logout: 'تسجيل الخروج',
                 admin_link: 'فضاء الإدارة',
                 admin_t: 'فضاء الإدارة', admin_s: 'الدخول مخصص لفريق Mo9f Digital فقط.',
@@ -1614,7 +1610,6 @@
                 dash_sit_lbl: 'Status',
                 dash_encours: 'In progress',
                 dash_valide: 'Request Approved',
-                dash_refresh: 'Refresh my status ↻',
                 dash_logout: 'Log out',
                 admin_link: 'Administrator area',
                 admin_t: 'Administrator Area', admin_s: 'Access restricted to the Mo9f Digital team.',
@@ -1696,7 +1691,7 @@
                 d_lccode: 'lccode', btn_conn: 'btn_conn', d_conn_hint: 'conn_hint',
                 d_clbl: 'clbl', d_ftag: 'ftag', d_finfo: 'finfo', d_fteam: 'fteam',
                 d_frole1: 'frole', d_frole2: 'frole', d_femail: 'femail',
-                d_dash_sit_lbl: 'dash_sit_lbl', btn_dash_refresh: 'dash_refresh', btn_dash_logout: 'dash_logout',
+                d_dash_sit_lbl: 'dash_sit_lbl', btn_dash_logout: 'dash_logout',
                 d_admin_link: 'admin_link', d_admin_t: 'admin_t', d_admin_s: 'admin_s',
                 d_admin_lpass: 'admin_lpass', btn_admin_login: 'admin_login_btn',
                 d_admin_list_t: 'admin_list_t', d_admin_list_s: 'admin_list_s'
@@ -1931,6 +1926,7 @@
             qG('t_conn').classList.remove('on');
             qG('panel_dash').classList.add('on');
             qRenderDash(isNew);
+            qStartStatutWatcher();
             qScroll();
         }
 
@@ -1967,14 +1963,53 @@
             }
         }
 
-        /* Permet à l'utilisateur de vérifier si l'admin a validé sa demande */
-        function qRefreshDash() {
-            var fresh = qDBFindByEmail(QUD.email);
-            if (fresh) { QUD = fresh; }
-            qRenderDashBadge();
+        /* ============================================================
+           MISE A JOUR AUTOMATIQUE DU STATUT (polling)
+           ------------------------------------------------------------
+           Tant que le Dashboard utilisateur est affiché, on relit
+           régulièrement l'enregistrement dans la base locale : si
+           l'administrateur a changé le statut ("Valide"), le badge de
+           l'utilisateur se met à jour tout seul, sans bouton "Actualiser".
+           NOTE : dans ce prototype localStorage, cela ne fonctionne que
+           dans le MÊME navigateur (ex: deux onglets ouverts). Pour une
+           vraie mise à jour temps réel cross-appareil, il faudra relier
+           qDBFindByEmail à une vraie base de données partagée
+           (ex: Firebase Firestore) et écouter les changements depuis là.
+           ============================================================ */
+        var STATUT_WATCHER = null;
+
+        function qStartStatutWatcher() {
+            qStopStatutWatcher();
+            STATUT_WATCHER = setInterval(function () {
+                if (!QUD || !QUD.email) return;
+                if (!qG('panel_dash') || !qG('panel_dash').classList.contains('on')) {
+                    qStopStatutWatcher();
+                    return;
+                }
+                var fresh = qDBFindByEmail(QUD.email);
+                if (fresh && fresh.statut !== QUD.statut) {
+                    QUD = fresh;
+                    qRenderDashBadge();
+                } else if (fresh) {
+                    QUD = fresh;
+                }
+            }, 3000);
         }
 
+        function qStopStatutWatcher() {
+            if (STATUT_WATCHER) { clearInterval(STATUT_WATCHER); STATUT_WATCHER = null; }
+        }
+
+        /* Se déclenche aussi si un autre onglet (ex: l'admin) modifie le localStorage */
+        window.addEventListener('storage', function (ev) {
+            if (ev.key === DB_KEY && QUD && QUD.email && qG('panel_dash') && qG('panel_dash').classList.contains('on')) {
+                var fresh = qDBFindByEmail(QUD.email);
+                if (fresh) { QUD = fresh; qRenderDashBadge(); }
+            }
+        });
+
         function qLogoutDash() {
+            qStopStatutWatcher();
             QUD = {};
             qG('panel_dash').classList.remove('on');
             qG('panel_conn').classList.add('on');
@@ -1991,7 +2026,7 @@
            cette page avec une authentification côté serveur (ex: Firebase
            Auth) et ne servez la liste des inscriptions qu'après vérification.
            ============================================================ */
-        var ADMIN_PASS = 'mo9f2026'; // À changer / à remplacer par une vraie authentification en production
+        var ADMIN_PASS = 'Horti1234mo9f2'; // À changer / à remplacer par une vraie authentification en production
 
         function qGoAdmin() {
             qG('panel_ins').classList.remove('on');
@@ -2000,6 +2035,7 @@
             qG('t_ins').classList.remove('on');
             qG('t_conn').classList.remove('on');
             qG('panel_admin').classList.add('on');
+            qStopStatutWatcher();
             qScroll();
         }
 
@@ -2010,6 +2046,7 @@
                 qG('admin_gate').style.display = 'none';
                 qG('admin_panel').style.display = 'block';
                 qRenderAdminList();
+                qStartAdminWatcher();
             } else {
                 qMsg('msg_admin', qT('e_admin_pass'), 'err');
             }
@@ -2067,6 +2104,26 @@
             qDBUpdateById(id, { statut: newStatut });
             if (QUD && QUD.id === id) { QUD.statut = newStatut; }
             qRenderAdminList();
+        }
+
+        /* ============================================================
+           MISE A JOUR AUTOMATIQUE DE LA LISTE ADMIN
+           Rafraîchit la liste régulièrement pour refléter toute nouvelle
+           inscription reçue pendant que l'admin a la page ouverte.
+           ============================================================ */
+        var ADMIN_WATCHER = null;
+        function qStartAdminWatcher() {
+            qStopAdminWatcher();
+            ADMIN_WATCHER = setInterval(function () {
+                if (!qG('panel_admin') || !qG('panel_admin').classList.contains('on') || qG('admin_panel').style.display !== 'block') {
+                    qStopAdminWatcher();
+                    return;
+                }
+                qRenderAdminList();
+            }, 4000);
+        }
+        function qStopAdminWatcher() {
+            if (ADMIN_WATCHER) { clearInterval(ADMIN_WATCHER); ADMIN_WATCHER = null; }
         }
 
         /* ============================================================
